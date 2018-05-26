@@ -13,16 +13,28 @@ namespace Grocery.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Plant()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Food You Need to Feel Healthy and Live Well";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Meat()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Animal Protein to Refuel";
+
+            return View();
+        }
+        public ActionResult Baking()
+        {
+            ViewBag.Message = "Items You Need to Bake, Season, and Create Deliciousness";
+
+            return View();
+        }
+        public ActionResult Recipes()
+        {
+            ViewBag.Message = "Meal Ideas to Spice Things Up";
 
             return View();
         }
