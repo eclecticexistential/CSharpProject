@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,13 @@ namespace Grocery.Controllers
 {
     public class HomeController : Controller
     {
+        private GroceryItemRepo _groceryItemRepo = null;
+
+        public HomeController()
+        {
+            _groceryItemRepo = new GroceryItemRepo();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -23,8 +31,8 @@ namespace Grocery.Controllers
         public ActionResult Meat()
         {
             ViewBag.Message = "Animal Protein to Refuel";
-
-            return View();
+            var dasMeats = _groceryItemRepo.GetMeats();
+            return View(dasMeats);
         }
         public ActionResult Baking()
         {

@@ -1998,23 +1998,24 @@ textarea.input-lg {
 }
 
 .btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.428571429;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-       -o-user-select: none;
-          user-select: none;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    box-shadow: 0 2px #000;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .btn:focus {
@@ -4928,13 +4929,74 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
+  padding: 60px;
   margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #eeeeee;
+}
+
+.bg-success {
+    background: #249;
+    border: 1px solid #35A;
+    box-shadow: 0 1.5px #111;
+}
+
+.grocery-image {
+    background-image: url(/Images/grocerymain.jpg);
+    background-size: cover;
+    color: white;
+    text-shadow: 1px 2px #000;
+    padding: 3em;
+    margin-bottom: 30px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    min-width: 100%;
+}
+
+.grocery-image h1 {
+    font-size: 3.5em;
+    line-height: 3em;
+}
+
+.bg-lightgreen, .bg-lightgrey, .bg-red, .bg-lightyellow {
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+}
+
+.bg-lightyellow{
+    border-right: 2px solid #000;
+}
+
+.bg-lightyellow{
+    background: lightyellow;
+}
+
+.bg-lightgrey{
+    background: lightgrey;
+}
+
+.bg-lightgreen{
+    background: lightgreen;
+}
+
+.bg-red{
+    background: lightpink
+}
+
+.p-5{
+    padding: 2.5em;
+}
+
+.m-5{
+    margin: 1em 0 0.5em;
+}
+
+.text-white a {
+    color: white;
+    font-weight: bold;
 }
 
 .jumbotron h1 {

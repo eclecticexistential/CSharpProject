@@ -1,10 +1,18 @@
-﻿@{
-    ViewBag.Title = "Meat";
+﻿@model Grocery.Models.Meats[]
+@{
+    ViewBag.Title = "Meats";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
 
 <p>Pick Your Animal</p>
-<ul>
-    <li></li>
-</ul>
+<div class="row">
+    @foreach (var meatType in Model)
+    {
+        <div class="col-md-4">
+            <h4>@Html.ActionLink(meatType.DisplayText, "Detail", new { id = meatType.Id })</h4>
+            <a href="@Url.Action("Detail", new { id = meatType.Id })">
+                <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="image-responsive" />
+            </a>
+        </div>
+    }
+</div>

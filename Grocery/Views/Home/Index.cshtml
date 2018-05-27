@@ -2,40 +2,29 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Grocery</h1>
-    <p class="lead">Becuase Everyone Deserves to Eat Good Food</p>
-    <p><a href="" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="text-center container-fluid grocery-image">
+    <h1>Eat Good Food</h1>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            <ul>
-                <li></li>
-            </ul>
-        </p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
+<div class="row bg-success p-5 text-white text-center">
+    <div class="col-md-3 bg-red p-5">
         <h2>All the Meats</h2>
-        <p>Check out our selection of meats from the main animals used to consume protein in the United States</p>
-        <p><a class="btn btn-default" href="">Non-Vegetarians &raquo;</a></p>
+        <p>Meats from the main animals used to consume protein in the United States</p>
+        <p class="btn btn-primary m-5"> @Html.ActionLink("Non-Vegetarians >>", "Meat", "Home")</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3 bg-lightgrey p-5">
         <h2>Baking</h2>
-        <p>Get the ingredients you need to create home made meals from scratch.</p>
-        <p><a class="btn btn-default" href="">Learn More &raquo;</a></p>
-    </div><div class="col-md-4">
-        <h2>Plants</h2>
-        <p>No matter which plant you prefer, we have the fruit or vegetable you need to live a healthy life</p>
-        <p><a class="btn btn-default" href="">Health Living &raquo;</a></p>
+        <p>Get the ingredients you need to create home made meals from scratch</p>
+        <p class="btn btn-info m-5"> @Html.ActionLink("Learn More >>", "Baking", "Home")</p>
     </div>
-    <div class="col-md-4">
-        <h2>Recipe</h2>
-        <p>Recipes are created to make delicious meals for you, your family and friends.</p>
-        <p><a class="btn btn-default" href="">Check Out Ours &raquo;</a></p>
+    <div class="col-md-3 bg-lightgreen p-5">
+        <h2>Plants</h2>
+        <p>We have the vegetation you need to live a healthy life</p>
+        <p class="btn btn-warning m-5"> @Html.ActionLink("Healthy Living >>", "Plants", "Home")</p>
+    </div>
+    <div class="col-md-3 bg-lightyellow p-5">
+        <h2>Recipes</h2>
+        <p>Recipes are created to make delicious meals for you, your family and friends</p>
+        <p class="btn btn-danger m-5"> @Html.ActionLink("Check Out Ours >>", "Recipes", "Home")</p>
     </div>
 </div>
