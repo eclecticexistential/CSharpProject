@@ -1,13 +1,41 @@
-﻿
+﻿@model Grocery.Models.Items[]
 @{
     ViewBag.Title = "Baking";
 }
 
+<div class="container text-center">
 <h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Pick Your Ingredient</p>
-<ul>
-    <li></li>
-</ul>
-
+<p>Pick Your Ingredients</p>
+<div class="row bg-red">
+    <h3>Ingredients</h3>
+    @foreach (var ingType in Model)
+    {
+        if (ingType.Type == "Ingredient")
+        {
+            <div class="col-md-2 h-2">
+                <h4>@ingType.ItemName</h4>
+                <img src="/Images/Baking/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
+                <h3>$@ingType.Price.00</h3>
+                <p class="mb-5"><bold>@ingType.Description</bold></p>
+                <button class="btn btn-primary auto">Add to Cart</button>
+            </div>
+        }
+    }
+</div>
+<div class="row bg-lightgreen">
+    <h3>Spices</h3>
+    @foreach (var ingType in Model)
+    {
+        if (ingType.Type == "Spice")
+        {
+            <div class="col-md-2 h-2">
+                <h4>@ingType.ItemName</h4>
+                <img src="/Images/Baking/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
+                <h3>$@ingType.Price.00</h3>
+                <p class="mb-5"><bold>@ingType.Description</bold></p>
+                <button class="btn btn-primary auto">Add to Cart</button>
+            </div>
+        }
+    }
+</div>
+</div>

@@ -24,21 +24,21 @@ namespace Grocery.Controllers
         public ActionResult Plant()
         {
             ViewBag.Message = "Food You Need to Feel Healthy and Live Well";
-
-            return View();
+            var dasPlants = _groceryItemRepo.GetItems();
+            return View(dasPlants);
         }
 
         public ActionResult Meat()
         {
             ViewBag.Message = "Animal Protein to Refuel";
-            var dasMeats = _groceryItemRepo.GetMeats();
+            var dasMeats = _groceryItemRepo.GetItems();
             return View(dasMeats);
         }
         public ActionResult Baking()
         {
             ViewBag.Message = "Items You Need to Bake, Season, and Create Deliciousness";
-
-            return View();
+            var dasBake = _groceryItemRepo.GetItems();
+            return View(dasBake);
         }
         public ActionResult Recipes()
         {

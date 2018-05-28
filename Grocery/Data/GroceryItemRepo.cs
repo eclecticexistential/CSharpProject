@@ -8,202 +8,512 @@ namespace Grocery.Data
 {
     public class GroceryItemRepo
     {
-        private static Meats[] _meats = new Meats[]
+        private static Items[] _items = new Items[]
         {
-            new Meats()
+            new Items()
             {
                 Id = 0,
                 ItemName = "Bacon",
-                Animal = "Pig",
+                Type = "Pig",
                 Price = 2,
                 Description = "Tasty pork product. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 1,
                 ItemName = "Baloney",
-                Animal = "Pig",
+                Type = "Pig",
                 Price = 1,
                 Description = "Eat fried or straight out of the package. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 2,
                 ItemName = "Beef Ribs",
-                Animal = "Cow",
+                Type = "Cow",
                 Price = 13,
                 Description = "Ribs are finger licking good. Price per slab."
             },
-            new Meats()
+            new Items()
             {
                 Id = 3,
                 ItemName = "Beef Tbone Steak",
-                Animal = "Cow",
+                Type = "Cow",
                 Price = 4,
                 Description = "Great grilled or baked. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 4,
                 ItemName = "Brisket",
-                Animal = "Cow",
+                Type = "Cow",
                 Price = 11,
                 Description = "Slow cook to perfection. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 5,
                 ItemName = "Chicken Breast",
-                Animal = "Chicken",
+                Type = "Chicken",
                 Price = 3,
                 Description = "Grill or bake for best results. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 6,
                 ItemName = "Chicken Strips",
-                Animal = "Chicken",
+                Type = "Chicken",
                 Price = 2,
                 Description = "Great pan fried. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 7,
                 ItemName = "Chicken Whole",
-                Animal = "Chicken",
+                Type = "Chicken",
                 Price = 15,
                 Description = "Better than getting a bucket's worth. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 8,
                 ItemName = "Chicken Wings",
-                Animal = "Chicken",
+                Type = "Chicken",
                 Price = 2,
                 Description = "All the spice combinations. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 9,
                 ItemName = "Ham",
-                Animal = "Pig",
+                Type = "Pig",
                 Price = 18,
                 Description = "Bake in oven for supreme deliciousness. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 10,
                 ItemName = "Hamburger",
-                Animal = "Cow",
+                Type = "Cow",
                 Price = 3,
                 Description = "80/20. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 11,
                 ItemName = "Hot Dogs",
-                Animal = "Pig",
+                Type = "Pig",
                 Price = 1,
                 Description = "Grill or boil to enhance meal. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 12,
                 ItemName = "Pork Chops",
-                Animal = "Pig",
+                Type = "Pig",
                 Price = 2,
                 Description = "Bake to enhance flavor. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 13,
                 ItemName = "Pork Tenderloin",
-                Animal = "Pig",
+                Type = "Pig",
                 Price = 9,
                 Description = "Scrumptious. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 14,
                 ItemName = "Rib Eye Steak",
-                Animal = "Cow",
+                Type = "Cow",
                 Price = 4,
                 Description = "Marbled beef. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 15,
                 ItemName = "Salmon Can",
-                Animal = "Fish",
+                Type = "Fish",
                 Price = 2,
                 Description = "Great for salmon croquet. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 16,
                 ItemName = "Salmon Raw",
-                Animal = "Fish",
+                Type = "Fish",
                 Price = 2,
                 Description = "Best pan fried or baked. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 17,
                 ItemName = "Top Sirloin Steak",
-                Animal = "Cow",
+                Type = "Cow",
                 Price = 4,
                 Description = "Awesome treat yo' self food. Price per lbs."
             },
-            new Meats()
+            new Items()
             {
                 Id = 18,
                 ItemName = "Tuna Can",
-                Animal = "Fish",
+                Type = "Fish",
                 Price = 1,
                 Description = "Great for sandwiches or dip. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 19,
                 ItemName = "Turkey Sliced",
-                Animal = "Turkey",
+                Type = "Turkey",
                 Price = 2,
                 Description = "Don't let this dry out. Price per unit."
             },
-            new Meats()
+            new Items()
             {
                 Id = 20,
                 ItemName = "Turkey Whole",
-                Animal = "Turkey",
+                Type = "Turkey",
                 Price = 18,
                 Description = "Do not under cook. Price per unit."
             },
-        };
-        public Meats[] GetMeats()
-        {
-            return _meats;
-        }
-        public Meats GetMeats(int id)
-        {
-            Meats meatsToReturn = null;
-            foreach (var meat in _meats)
-            {
-                if (meat.Id == id)
+            new Items()
                 {
-                    meatsToReturn = meat;
+                    Id = 0,
+                    ItemName = "Banana",
+                    Type = "Fruit",
+                    Price = 2,
+                    Description = "Open from either side. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 1,
+                    ItemName = "Blackberry",
+                    Type = "Fruit",
+                    Price = 2,
+                    Description = "Fresh from the bush. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 2,
+                    ItemName = "Broccoli",
+                    Type = "Vegetable",
+                    Price = 2,
+                    Description = "Best eaten before bloom. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 3,
+                    ItemName = "Brown Rice",
+                    Type = "Grain",
+                    Price = 3,
+                    Description = "Great for many meals. Price per lbs."
+                },
+                new Items()
+                {
+                    Id = 4,
+                    ItemName = "Carrot",
+                    Type = "Vegetable",
+                    Price = 1,
+                    Description = "Tasty in stews or raw. Price per bunch."
+                },
+                new Items()
+                {
+                    Id = 5,
+                    ItemName = "Celery",
+                    Type = "Vegetable",
+                    Price = 2,
+                    Description = "Stringy. Burns a lot of calories. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 6,
+                    ItemName = "Cucumber",
+                    Type = "Vegetable",
+                    Price = 1,
+                    Description = "Tasty on salads. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 7,
+                    ItemName = "Edamame Beans",
+                    Type = "Vegetable",
+                    Price = 3,
+                    Description = "Great source of protein. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 8,
+                    ItemName = "Ginger",
+                    Type = "Vegetable",
+                    Price = 2,
+                    Description = "Great spice or soup addition. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 9,
+                    ItemName = "Green Apple",
+                    Type = "Fruit",
+                    Price = 5,
+                    Description = "Granny Smith. Crisp Price per bag."
+                },
+                new Items()
+                {
+                    Id = 10,
+                    ItemName = "Green Bean Can",
+                    Type = "Vegetable",
+                    Price = 1,
+                    Description = "Freshness sealed in. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 11,
+                    ItemName = "Green Pepper",
+                    Type = "Vegetable",
+                    Price = 1,
+                    Description = "Stuff with rice or slice up for salad. Price per unit."
+                },new Items()
+                {
+                    Id = 12,
+                    ItemName = "Kidney Beans Can",
+                    Type = "Vegetable",
+                    Price = 1,
+                    Description = "Good with rice. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 13,
+                    ItemName = "Onion",
+                    Type = "Vegetable",
+                    Price = 1,
+                    Description = "Add to soup, stew, or salsa. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 14,
+                    ItemName = "Pineapple Can",
+                    Type = "Fruit",
+                    Price = 1,
+                    Description = "Pairs well with cottage cheese. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 15,
+                    ItemName = "Potato",
+                    Type = "Vegetable",
+                    Price = 4,
+                    Description = "Pleasant source of potassium. Price per bag."
+                },
+                new Items()
+                {
+                    Id = 16,
+                    ItemName = "Pumpkin Can",
+                    Type = "Fruit",
+                    Price = 2,
+                    Description = "Pumpkin muffins or pie is great year round. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 17,
+                    ItemName = "Red Apple",
+                    Type = "Fruit",
+                    Price = 4,
+                    Description = "Tastes almost as great as the green kind. Price per bag."
+                },
+                new Items()
+                {
+                    Id = 18,
+                    ItemName = "Rye Bread",
+                    Type = "Grain",
+                    Price = 1,
+                    Description = "Chaulked full of fiber. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 19,
+                    ItemName = "Salsa",
+                    Type = "Vegetable",
+                    Price = 2,
+                    Description = "Goes great with rice and sour cream. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 20,
+                    ItemName = "Sphaghetti Squash",
+                    Type = "Vegetable",
+                    Price = 2,
+                    Description = "Meal in itself. Price per lbs."
+                },
+                new Items()
+                {
+                    Id = 21,
+                    ItemName = "Strawberry",
+                    Type = "Fruit",
+                    Price = 2,
+                    Description = "Slice up in tea or water. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 22,
+                    ItemName = "Sweet Potato",
+                    Type = "Vegetable",
+                    Price = 1,
+                    Description = "One of the best spuds around. Price per lbs."
+                },
+                new Items()
+                {
+                    Id = 23,
+                    ItemName = "Tortilla",
+                    Type = "Grain",
+                    Price = 2,
+                    Description = "Make burritos at any time. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 24,
+                    ItemName = "Wheat Bread",
+                    Type = "Grain",
+                    Price = 1,
+                    Description = "Healthy source of fiber. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 25,
+                    ItemName = "White Bread",
+                    Type = "Grain",
+                    Price = 1,
+                    Description = "Bleached grain. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 26,
+                    ItemName = "White Rice",
+                    Type = "Grain",
+                    Price = 2,
+                    Description = "Add to any soup or stew to feel full. Price per lbs."
+                },
+                new Items()
+                {
+                    Id = 27,
+                    ItemName = "Yellow Squash",
+                    Type = "Vegetable",
+                    Price = 1,
+                    Description = "Best fried. Price per lbs."
+                },
+                new Items()
+                {
+                    Id = 0,
+                    ItemName = "Butter",
+                    Type = "Ingredient",
+                    Price = 1,
+                    Description = "Used in lots of recipes. Price per lbs."
+                },
+                new Items()
+                {
+                    Id = 1,
+                    ItemName = "Chicken Eggs",
+                    Type = "Ingredient",
+                    Price = 3,
+                    Description = "Binding agent. Price per dozen."
+                },
+                new Items()
+                {
+                    Id = 2,
+                    ItemName = "Cottage Cheese",
+                    Type = "Ingredient",
+                    Price = 3,
+                    Description = "Great in lasanga or with fruit. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 3,
+                    ItemName = "Cream Cheese",
+                    Type = "Ingredient",
+                    Price = 2,
+                    Description = "Use to make things creamy. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 4,
+                    ItemName = "Flour",
+                    Type = "Ingredient",
+                    Price = 4,
+                    Description = "Base of making baking goods. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 5,
+                    ItemName = "Milk",
+                    Type = "Ingredient",
+                    Price = 3,
+                    Description = "Great source of calcium. Price per gallon."
+                },
+                new Items()
+                {
+                    Id = 6,
+                    ItemName = "Olive Oil",
+                    Type = "Ingredient",
+                    Price = 4,
+                    Description = "Perfect for frying or salads. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 7,
+                    ItemName = "Pepper",
+                    Type = "Spice",
+                    Price = 1,
+                    Description = "Great on cottage cheese and potatoes. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 8,
+                    ItemName = "Red Pepper",
+                    Type = "Spice",
+                    Price = 1,
+                    Description = "Very Spicy. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 9,
+                    ItemName = "Salt",
+                    Type = "Spice",
+                    Price = 1,
+                    Description = "Sodium tastes great on most things. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 10,
+                    ItemName = "Sour Cream",
+                    Type = "Ingredient",
+                    Price = 3,
+                    Description = "Tastes great on potatoes, with tuna, or as dip. Price per unit."
+                },
+                new Items()
+                {
+                    Id = 11,
+                    ItemName = "Vegetable Broth",
+                    Type = "Ingredient",
+                    Price = 3,
+                    Description = "Base of many different recipes. Price per unit."
+                }
+        };
+        public Items[] GetItems()
+        {
+            return _items;
+        }
+        public Items GetItems(int id)
+        {
+            Items ItemsToReturn = null;
+            foreach (var item in _items)
+            {
+                if (item.Id == id)
+                {
+                    ItemsToReturn = item;
                     break;
                 }
             }
-            return meatsToReturn;
-        }
-        public List<string> GetMeatType()
-        {
-            var meatTypeList = new List<string> { };
-            foreach (var meatTypes in _meats)
-            {
-                meatTypeList.Add(meatTypes.Animal);
-            }
-            return meatTypeList;
-        }
+            return ItemsToReturn;
+        } 
     }
 }

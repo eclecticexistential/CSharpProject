@@ -1,4 +1,4 @@
-﻿@model Grocery.Models.Meats[]
+﻿@model Grocery.Models.Items[]
 @{
     ViewBag.Title = "Meats";
 }
@@ -10,11 +10,11 @@
         <h3>Beef</h3>
         @foreach (var meatType in Model)
         {
-            if (meatType.Animal == "Cow")
+            if (meatType.Type == "Cow")
             {
                 <div class="col-md-2 h-2">
-                    <h4>@meatType.DisplayText</h4>
-                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h4>@meatType.ItemName</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                     <h3>$@meatType.Price.00</h3>
                     <p class="mb-5"><bold>@meatType.Description</bold></p>
                     <button class="btn btn-primary auto">Add to Cart</button>
@@ -26,11 +26,11 @@
         <h3>Pork</h3>
         @foreach (var meatType in Model)
         {
-            if (meatType.Animal == "Pig")
+            if (meatType.Type == "Pig")
             {
                 <div class="col-md-2 h-2">
-                    <h4>@meatType.DisplayText</h4>
-                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h4>@meatType.ItemName</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                     <h3>$@meatType.Price.00</h3>
                     <p class="mb-5"><bold>@meatType.Description</bold></p>
                     <button class="btn btn-primary auto">Add to Cart</button>
@@ -42,11 +42,11 @@
         <h3>Chicken</h3>
         @foreach (var meatType in Model)
         {
-            if (meatType.Animal == "Chicken")
+            if (meatType.Type == "Chicken")
             {
                 <div class="col-md-2 h-2">
-                    <h4>@meatType.DisplayText</h4>
-                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h4>@meatType.ItemName</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                     <h3>$@meatType.Price.00</h3>
                     <p class="mb-5"><bold>@meatType.Description</bold></p>
                     <button class="btn btn-primary auto">Add to Cart</button>
@@ -58,11 +58,11 @@
         <h3>Fish</h3>
         @foreach (var meatType in Model)
         {
-            if (meatType.Animal == "Fish")
+            if (meatType.Type == "Fish")
             {
                 <div class="col-md-2 h-2">
-                    <h4>@meatType.DisplayText</h4>
-                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h4>@meatType.ItemName</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                     <h3>$@meatType.Price.00</h3>
                     <p class="mb-5"><bold>@meatType.Description</bold></p>
                     <button class="btn btn-primary auto">Add to Cart</button>
@@ -74,11 +74,11 @@
         <h3>Turkey</h3>
         @foreach (var meatType in Model)
         {
-            if (meatType.Animal == "Turkey")
+            if (meatType.Type == "Turkey")
             {
                 <div class="col-md-2 h-2">
-                    <h4>@meatType.DisplayText</h4>
-                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h4>@meatType.ItemName</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                     <h3>$@meatType.Price.00</h3>
                     <p class="mb-5"><bold>@meatType.Description</bold></p>
                     <button class="btn btn-primary auto">Add to Cart</button>
