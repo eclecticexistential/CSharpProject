@@ -2,17 +2,88 @@
 @{
     ViewBag.Title = "Meats";
 }
-<h2>@ViewBag.Title</h2>
+<div class="container text-center">
+    <h2>@ViewBag.Title</h2>
 
-<p>Pick Your Animal</p>
-<div class="row">
-    @foreach (var meatType in Model)
-    {
-        <div class="col-md-4">
-            <h4>@Html.ActionLink(meatType.DisplayText, "Detail", new { id = meatType.Id })</h4>
-            <a href="@Url.Action("Detail", new { id = meatType.Id })">
-                <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="image-responsive" />
-            </a>
-        </div>
-    }
+    <p>Pick Your Animal</p>
+    <div class="row bg-red">
+        <h3>Beef</h3>
+        @foreach (var meatType in Model)
+        {
+            if (meatType.Animal == "Cow")
+            {
+                <div class="col-md-2 h-2">
+                    <h4>@meatType.DisplayText</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h3>$@meatType.Price.00</h3>
+                    <p class="mb-5"><bold>@meatType.Description</bold></p>
+                    <button class="btn btn-primary auto">Add to Cart</button>
+                </div>
+            }
+        }
+    </div>
+    <div class="row bg-lightgreen">
+        <h3>Pork</h3>
+        @foreach (var meatType in Model)
+        {
+            if (meatType.Animal == "Pig")
+            {
+                <div class="col-md-2 h-2">
+                    <h4>@meatType.DisplayText</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h3>$@meatType.Price.00</h3>
+                    <p class="mb-5"><bold>@meatType.Description</bold></p>
+                    <button class="btn btn-primary auto">Add to Cart</button>
+                </div>
+            }
+        }
+    </div>
+    <div class="row bg-lightgrey">
+        <h3>Chicken</h3>
+        @foreach (var meatType in Model)
+        {
+            if (meatType.Animal == "Chicken")
+            {
+                <div class="col-md-2 h-2">
+                    <h4>@meatType.DisplayText</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h3>$@meatType.Price.00</h3>
+                    <p class="mb-5"><bold>@meatType.Description</bold></p>
+                    <button class="btn btn-primary auto">Add to Cart</button>
+                </div>
+            }
+        }
+    </div>
+    <div class="row bg-red">
+        <h3>Fish</h3>
+        @foreach (var meatType in Model)
+        {
+            if (meatType.Animal == "Fish")
+            {
+                <div class="col-md-2 h-2">
+                    <h4>@meatType.DisplayText</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h3>$@meatType.Price.00</h3>
+                    <p class="mb-5"><bold>@meatType.Description</bold></p>
+                    <button class="btn btn-primary auto">Add to Cart</button>
+                </div>
+            }
+        }
+    </div>
+    <div class="row bg-lightgreen">
+        <h3>Turkey</h3>
+        @foreach (var meatType in Model)
+        {
+            if (meatType.Animal == "Turkey")
+            {
+                <div class="col-md-2 h-2">
+                    <h4>@meatType.DisplayText</h4>
+                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.DisplayText" class="h-5 image-responsive" />
+                    <h3>$@meatType.Price.00</h3>
+                    <p class="mb-5"><bold>@meatType.Description</bold></p>
+                    <button class="btn btn-primary auto">Add to Cart</button>
+                </div>
+            }
+        }
+    </div>
 </div>

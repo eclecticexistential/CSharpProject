@@ -14,6 +14,7 @@ namespace Grocery.Data
             {
                 Id = 0,
                 ItemName = "Bacon",
+                Animal = "Pig",
                 Price = 2,
                 Description = "Tasty pork product. Price per lbs."
             },
@@ -21,6 +22,7 @@ namespace Grocery.Data
             {
                 Id = 1,
                 ItemName = "Baloney",
+                Animal = "Pig",
                 Price = 1,
                 Description = "Eat fried or straight out of the package. Price per unit."
             },
@@ -28,6 +30,7 @@ namespace Grocery.Data
             {
                 Id = 2,
                 ItemName = "Beef Ribs",
+                Animal = "Cow",
                 Price = 13,
                 Description = "Ribs are finger licking good. Price per slab."
             },
@@ -35,6 +38,7 @@ namespace Grocery.Data
             {
                 Id = 3,
                 ItemName = "Beef Tbone Steak",
+                Animal = "Cow",
                 Price = 4,
                 Description = "Great grilled or baked. Price per lbs."
             },
@@ -42,6 +46,7 @@ namespace Grocery.Data
             {
                 Id = 4,
                 ItemName = "Brisket",
+                Animal = "Cow",
                 Price = 11,
                 Description = "Slow cook to perfection. Price per unit."
             },
@@ -49,6 +54,7 @@ namespace Grocery.Data
             {
                 Id = 5,
                 ItemName = "Chicken Breast",
+                Animal = "Chicken",
                 Price = 3,
                 Description = "Grill or bake for best results. Price per lbs."
             },
@@ -56,6 +62,7 @@ namespace Grocery.Data
             {
                 Id = 6,
                 ItemName = "Chicken Strips",
+                Animal = "Chicken",
                 Price = 2,
                 Description = "Great pan fried. Price per lbs."
             },
@@ -63,6 +70,7 @@ namespace Grocery.Data
             {
                 Id = 7,
                 ItemName = "Chicken Whole",
+                Animal = "Chicken",
                 Price = 15,
                 Description = "Better than getting a bucket's worth. Price per unit."
             },
@@ -70,6 +78,7 @@ namespace Grocery.Data
             {
                 Id = 8,
                 ItemName = "Chicken Wings",
+                Animal = "Chicken",
                 Price = 2,
                 Description = "All the spice combinations. Price per lbs."
             },
@@ -77,6 +86,7 @@ namespace Grocery.Data
             {
                 Id = 9,
                 ItemName = "Ham",
+                Animal = "Pig",
                 Price = 18,
                 Description = "Bake in oven for supreme deliciousness. Price per unit."
             },
@@ -84,6 +94,7 @@ namespace Grocery.Data
             {
                 Id = 10,
                 ItemName = "Hamburger",
+                Animal = "Cow",
                 Price = 3,
                 Description = "80/20. Price per lbs."
             },
@@ -91,6 +102,7 @@ namespace Grocery.Data
             {
                 Id = 11,
                 ItemName = "Hot Dogs",
+                Animal = "Pig",
                 Price = 1,
                 Description = "Grill or boil to enhance meal. Price per unit."
             },
@@ -98,6 +110,7 @@ namespace Grocery.Data
             {
                 Id = 12,
                 ItemName = "Pork Chops",
+                Animal = "Pig",
                 Price = 2,
                 Description = "Bake to enhance flavor. Price per lbs."
             },
@@ -105,6 +118,7 @@ namespace Grocery.Data
             {
                 Id = 13,
                 ItemName = "Pork Tenderloin",
+                Animal = "Pig",
                 Price = 9,
                 Description = "Scrumptious. Price per unit."
             },
@@ -112,6 +126,7 @@ namespace Grocery.Data
             {
                 Id = 14,
                 ItemName = "Rib Eye Steak",
+                Animal = "Cow",
                 Price = 4,
                 Description = "Marbled beef. Price per lbs."
             },
@@ -119,6 +134,7 @@ namespace Grocery.Data
             {
                 Id = 15,
                 ItemName = "Salmon Can",
+                Animal = "Fish",
                 Price = 2,
                 Description = "Great for salmon croquet. Price per unit."
             },
@@ -126,6 +142,7 @@ namespace Grocery.Data
             {
                 Id = 16,
                 ItemName = "Salmon Raw",
+                Animal = "Fish",
                 Price = 2,
                 Description = "Best pan fried or baked. Price per lbs."
             },
@@ -133,6 +150,7 @@ namespace Grocery.Data
             {
                 Id = 17,
                 ItemName = "Top Sirloin Steak",
+                Animal = "Cow",
                 Price = 4,
                 Description = "Awesome treat yo' self food. Price per lbs."
             },
@@ -140,6 +158,7 @@ namespace Grocery.Data
             {
                 Id = 18,
                 ItemName = "Tuna Can",
+                Animal = "Fish",
                 Price = 1,
                 Description = "Great for sandwiches or dip. Price per unit."
             },
@@ -147,6 +166,7 @@ namespace Grocery.Data
             {
                 Id = 19,
                 ItemName = "Turkey Sliced",
+                Animal = "Turkey",
                 Price = 2,
                 Description = "Don't let this dry out. Price per unit."
             },
@@ -154,6 +174,7 @@ namespace Grocery.Data
             {
                 Id = 20,
                 ItemName = "Turkey Whole",
+                Animal = "Turkey",
                 Price = 18,
                 Description = "Do not under cook. Price per unit."
             },
@@ -174,6 +195,15 @@ namespace Grocery.Data
                 }
             }
             return meatsToReturn;
+        }
+        public List<string> GetMeatType()
+        {
+            var meatTypeList = new List<string> { };
+            foreach (var meatTypes in _meats)
+            {
+                meatTypeList.Add(meatTypes.Animal);
+            }
+            return meatTypeList;
         }
     }
 }
