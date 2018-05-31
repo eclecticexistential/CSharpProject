@@ -1,4 +1,5 @@
 ﻿using Grocery.Data;
+using Grocery.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,40 @@ namespace Grocery.Controllers
         {
             return View();
         }
+
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        public ActionResult Add()
+        {
+            var entry = new Entry()
+            {
+                ID = Items.Id
+            };
+            return View(); // may not need
+        }
+
+        [HttpPost]
+        public ActionResult Add(int id)
+        {
+            public Entry entry = Items.GetItems((int)id);
+            ShoppingCart.AddEntry(entry);
+            return RedirectToAction(whateverthecurrentpageis);
+        }
+        
+
+        [HttpPost]
+        public ActionResult Edit(Entry entry)
+        {
+        // add or subtract amount of goods
+        // if zero remove?
+        Items item = GetItems(entry.Id);
+            // +1 if adding
+            // -1 is removing
+        return RedirectToAction(whateverthecurrentpageis);
+    }
 
         public ActionResult Plant()
         {

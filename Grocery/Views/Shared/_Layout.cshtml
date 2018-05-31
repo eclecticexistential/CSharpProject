@@ -25,6 +25,14 @@
                     <li>@Html.ActionLink("Meat", "Meat", "Home")</li>
                     <li>@Html.ActionLink("Baking", "Baking", "Home")</li>
                 </ul>
+                @if (ViewBag.ShoppingCart.ItemList.Length > 0 && ViewBag.ShoppingCart.ItemList != null)
+                {
+                    <div class="backbar">
+                        <div class="container">
+                            @Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null, new { @class = "btn btn-default" })
+                        </div>
+                    </div>
+                    }
             </div>
         </div>
     </div>
