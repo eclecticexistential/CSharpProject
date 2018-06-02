@@ -11,6 +11,7 @@ namespace Grocery.Controllers
     public class HomeController : Controller
     {
         private GroceryItemRepo _groceryItemRepo = null;
+        private ShoppingCart _shoppingCart = null;
 
         public HomeController()
         {
@@ -22,39 +23,34 @@ namespace Grocery.Controllers
             return View();
         }
 
-        public ActionResult Add()
-        {
-            return View();
-        }
-
-        public ActionResult Add()
-        {
-            var entry = new Entry()
-            {
-                ID = Items.Id
-            };
-            return View(); // may not need
-        }
-
         [HttpPost]
         public ActionResult Add(int id)
         {
-            public Entry entry = Items.GetItems((int)id);
-            ShoppingCart.AddEntry(entry);
-            return RedirectToAction(whateverthecurrentpageis);
+            try
+            {
+                _shoppingCart.ChangeShoppingCartItemAmount(id, true);
+            }
+            catch
+            {
+                var entry = GroceryItemRepo.GetItems(id);
+                _shoppingCart.ItemsInCart.Add(entry);
+            }
+            return View();
         }
-        
 
         [HttpPost]
-        public ActionResult Edit(Entry entry)
+        public ActionResult Edit(int id, bool math)
         {
-        // add or subtract amount of goods
-        // if zero remove?
-        Items item = GetItems(entry.Id);
-            // +1 if adding
-            // -1 is removing
-        return RedirectToAction(whateverthecurrentpageis);
-    }
+            _shoppingCart.ChangeShoppingCartItemAmount(id, math);
+            return View("ShoppingCart");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            _shoppingCart.RemoveCartItem(id);
+            return View("ShoppingCart");
+        }
 
         public ActionResult Plant()
         {
@@ -79,6 +75,16 @@ namespace Grocery.Controllers
         {
             ViewBag.Message = "Meal Ideas to Spice Things Up";
 
+            return View();
+        }
+        public ActionResult ShoppingCart()
+        {
+            if(_shoppingCart != null)
+            {
+                ViewBag.Message = "Items in Your Shopping Cart";
+                var dasCart = _shoppingCart.GetCartItems();
+                return View(dasCart);
+            }
             return View();
         }
     }

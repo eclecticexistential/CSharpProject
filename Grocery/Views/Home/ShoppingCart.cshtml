@@ -1,7 +1,32 @@
-﻿
+﻿@model Grocery.Models.Items[]
+
 @{
     ViewBag.Title = "ShoppingCart";
 }
 
-<h2>ShoppingCart</h2>
+<div class="container text-center">
+    <h2>@ViewBag.Title</h2>
+    <p>@ViewBag.Message</p>
 
+    @using (Html.BeginForm())
+    {
+        <div class="row bg-red">
+            <h3>Ingredients</h3>
+            <div class="form-group">
+                @foreach (var ingType in Model)
+                {
+                    <div class="col-md-2 h-2">
+                        <h4>@ingType.ItemName</h4>
+                        <img src="/Images/Baking/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
+                        <h3>$@ingType.Price.00</h3>
+                        <p class="mb-5"><bold>@ingType.Description</bold></p>
+                        <form method="post">
+                            <button type="submit" class="btn btn-primary auto" value="@ingType.Id">Add to Cart</button>
+                        </form>
+                    </div>
+                }
+            </div>
+            }
+        </div>
+    }
+</div>
