@@ -10,49 +10,48 @@
     {
         <div class="row bg-red">
             <h3>Fruit</h3>
-            <div class="form-group">
                 @foreach (var fruitType in Model.Where(m => m.Type == "Fruit"))
                 {
-                    <div class="col-md-2 h-2">
-                        <h4>@fruitType.ItemName</h4>
-                        <img src="/Images/Plants/@fruitType.CoverImageFileName" alt="@fruitType.ItemName" class="h-5 image-responsive" />
-                        <h3>$@fruitType.Price.00</h3>
-                        <p class="mb-5"><bold>@fruitType.Description</bold></p>
-                        <button type="submit" class="btn btn-primary auto" value="@fruitType.Id">Add to Cart</button>
+                    <div class="form-group">
+                        <div class="col-md-2 h-2">
+                            <h4>@fruitType.ItemName</h4>
+                            <img src="/Images/Plants/@fruitType.CoverImageFileName" alt="@fruitType.ItemName" class="h-5 image-responsive" />
+                            <h3>$@fruitType.Price.00</h3>
+                            <p class="mb-5"><bold>@fruitType.Description</bold></p>
+                            <button type="submit" class="btn btn-primary auto">Add to Cart</button>
+                        </div>
                     </div>
                 }
-            </div>
         </div>
         <div class="row bg-lightgreen">
             <h3>Vegetable</h3>
-            <div class="form-group">
-
                 @foreach (var vegeType in Model.Where(m => m.Type == "Vegetable"))
                 {
-                    <div class="col-md-2 h-2">
-                        <h4>@vegeType.ItemName</h4>
-                        <img src="/Images/Plants/@vegeType.CoverImageFileName" alt="@vegeType.ItemName" class="h-5 image-responsive" />
-                        <h3>$@vegeType.Price.00</h3>
-                        <p class="mb-5"><bold>@vegeType.Description</bold></p>
-                        <button type="submit" class="btn btn-primary auto" value="@vegeType.Id">Add to Cart</button>
+                    <div class="form-group">
+                        <div class="col-md-2 h-2">
+                            <h4>@vegeType.ItemName</h4>
+                            <img src="/Images/Plants/@vegeType.CoverImageFileName" alt="@vegeType.ItemName" class="h-5 image-responsive" />
+                            <h3>$@vegeType.Price.00</h3>
+                            <p class="mb-5"><bold>@vegeType.Description</bold></p>
+                            <button type="submit" class="btn btn-primary auto">Add to Cart</button>
+                        </div>
                     </div>
                 }
-            </div>
         </div>
         <div class="row bg-lightgrey">
             <h3>Grains</h3>
-            <div class="form-group">
-                @foreach (var grainType in Model.Where(m => m.Type == "Grain"))
-                {
+            @foreach (var grainType in Model.Where(m => m.Type == "Grain"))
+             {
+                <div class="form-group">
                     <div class="col-md-2 h-2">
                         <h4>@grainType.ItemName</h4>
                         <img src="/Images/Plants/@grainType.CoverImageFileName" alt="@grainType.ItemName" class="h-5 image-responsive" />
                         <h3>$@grainType.Price.00</h3>
                         <p class="mb-5"><bold>@grainType.Description</bold></p>
-                        <button type="submit" class="btn btn-primary auto" value="@grainType.Id">Add to Cart</button>
+                        <button type="submit" class="btn btn-primary auto">Add to Cart</button>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     }
     </div>

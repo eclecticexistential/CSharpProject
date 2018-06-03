@@ -35,16 +35,19 @@ namespace Grocery.Controllers
         [HttpPost]
         public ActionResult Plant(Items items)
         {
-            try
+            if (ModelState.IsValid)
             {
-                _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
+                try
+                {
+                    _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
+                }
+                catch
+                {
+                    var entry = GroceryItemRepo.GetItems(items.Id);
+                    _shoppingCart.ItemsInCart.Add(entry);
+                }
             }
-            catch
-            {
-                var entry = GroceryItemRepo.GetItems(items.Id);
-                _shoppingCart.ItemsInCart.Add(entry);
-            }
-            return View();
+            return RedirectToAction("Plant");
         }
 
 
@@ -58,16 +61,19 @@ namespace Grocery.Controllers
         [HttpPost]
         public ActionResult Meat(Items items)
         {
-            try
+            if (ModelState.IsValid)
             {
-                _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
+                try
+                {
+                    _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
+                }
+                catch
+                {
+                    var entry = GroceryItemRepo.GetItems(items.Id);
+                    _shoppingCart.ItemsInCart.Add(entry);
+                }
             }
-            catch
-            {
-                var entry = GroceryItemRepo.GetItems(items.Id);
-                _shoppingCart.ItemsInCart.Add(entry);
-            }
-            return View();
+            return RedirectToAction("Meat");
         }
 
         public ActionResult Baking()
@@ -80,16 +86,19 @@ namespace Grocery.Controllers
         [HttpPost]
         public ActionResult Baking(Items items)
         {
-            try
+            if (ModelState.IsValid)
             {
-                _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
+                try
+                {
+                    _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
+                }
+                catch
+                {
+                    var entry = GroceryItemRepo.GetItems(items.Id);
+                    _shoppingCart.ItemsInCart.Add(entry);
+                }
             }
-            catch
-            {
-                var entry = GroceryItemRepo.GetItems(items.Id);
-                _shoppingCart.ItemsInCart.Add(entry);
-            }
-            return View();
+            return RedirectToAction("Baking");
         }
 
         public ActionResult Recipes()
@@ -102,16 +111,19 @@ namespace Grocery.Controllers
         [HttpPost]
         public ActionResult Recipes(Items items)
         {
-            try
+            if (ModelState.IsValid)
             {
-                _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
+                try
+                {
+                    _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
+                }
+                catch
+                {
+                    var entry = GroceryItemRepo.GetItems(items.Id);
+                    _shoppingCart.ItemsInCart.Add(entry);
+                }
             }
-            catch
-            {
-                var entry = GroceryItemRepo.GetItems(items.Id);
-                _shoppingCart.ItemsInCart.Add(entry);
-            }
-            return View();
+            return RedirectToAction("Recipes");
         }
 
         public ActionResult ShoppingCart()
@@ -130,15 +142,21 @@ namespace Grocery.Controllers
         [HttpPost]
         public ActionResult ShoppingCart(Items items)
         {
-            _shoppingCart.RemoveCartItem(items.Id);
-            return View("ShoppingCart");
+            if (ModelState.IsValid)
+            {
+                _shoppingCart.RemoveCartItem(items.Id);
+            }
+            return RedirectToAction("ShoppingCart", items);
         }
 
-        [HttpPost]
-        public ActionResult ShoppingCart(Items items, bool math)
-        {
-            _shoppingCart.ChangeShoppingCartItemAmount(items.Id, math);
-            return View("ShoppingCart");
-        }
+        //[HttpPost]
+        //public ActionResult ShoppingCart(Items items, bool math)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _shoppingCart.ChangeShoppingCartItemAmount(items.Id, math);
+        //    }
+        //    return RedirectToAction("ShoppingCart", items);
+        //}
     }
 }
