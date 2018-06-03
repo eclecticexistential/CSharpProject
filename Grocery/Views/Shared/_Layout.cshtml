@@ -24,15 +24,12 @@
                     <li>@Html.ActionLink("Plant", "Plant", "Home")</li>
                     <li>@Html.ActionLink("Meat", "Meat", "Home")</li>
                     <li>@Html.ActionLink("Baking", "Baking", "Home")</li>
+                    @if (ViewBag._shoppingCart != null && ViewBag._shoppingCart)
+                    {
+                        <li>@Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null, 
+                           new { @class = "btn btn-default" })</li>
+                    }
                 </ul>
-                @*@{ 
-                    var showClass = string.IsNullOrEmpty(_shoppingCart.ItemsInCart) ? "hide" : "";
-                }
-                <div class="@showClass">
-                    <div class="container">
-                        @Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null, new { @class = "btn btn-default" })
-                    </div>
-                </div>*@
             </div>
         </div>
     </div>
