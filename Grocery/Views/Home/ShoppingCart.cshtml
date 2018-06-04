@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Grocery.Models.ShoppingCart
+@{
     ViewBag.Title = "Shopping Cart";
 }
 
@@ -11,19 +12,11 @@
         <div>
             <div class="form-group">
                 <h4>Total Price of Purchase: $@ViewBag.TotalPrice.00</h4>
-                @foreach (var ingType in Model)
-                 {
-                <div>
-                    <h4>@ingType.ItemName</h4>
-                    <img src="/Images/Baking/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
-                    <h3>$@ingType.Price.00</h3>
-                    <p class="mb-5"><bold>@ingType.Description</bold></p>
-                    <button type="submit" class="btn btn-primary auto" value="false">-</button>
-                    <button type="submit" class="btn btn-primary auto" value="false">+</button>
-                    <button type="submit" class="btn btn-primary auto" value="false">Delete</button>
-                </div>
-                }
+                <h4>@Model.GetCartItems</h4>
+                <button type="submit" class="btn btn-primary auto" value="false">-</button>
+                <button type="submit" class="btn btn-primary auto" value="false">+</button>
+                <button type="submit" class="btn btn-primary auto" value="false">Delete</button>
             </div>
         </div>
-      }
+    }
 </div>

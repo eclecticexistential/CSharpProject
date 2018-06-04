@@ -144,7 +144,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\GroceryItemRepo.cs" />
-    <Compile Include="Data\ShoppingCart.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

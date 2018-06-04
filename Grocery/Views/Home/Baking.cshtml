@@ -20,11 +20,10 @@
                     <img src="/Images/Baking/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
                     <h3>$@ingType.Price.00</h3>
                     <p class="mb-5"><bold>@ingType.Description</bold></p>
-                    <button type="submit" class="btn btn-primary auto">Add to Cart</button>
+                    <button type="submit" class="btn btn-primary auto" name="Item" value="@ingType.Id">Add to Cart</button>
                 </div>
             </div>
          }
-     }
     </div>
     <div class="row bg-lightgreen">
         <h3>Spices</h3>
@@ -36,7 +35,7 @@
                     <img src="/Images/Baking/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
                     <h3>$@ingType.Price.00</h3>
                     <p class="mb-5"><bold>@ingType.Description</bold></p>
-                    <button type="submit" class="btn btn-primary auto">Add to Cart</button>
+                    <button type="submit" class="btn btn-primary auto" name="@ingType.ItemName">Add to Cart</button>
                 </div>
             </div>
          }

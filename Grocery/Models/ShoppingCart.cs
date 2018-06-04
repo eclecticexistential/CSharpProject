@@ -1,25 +1,26 @@
-﻿using Grocery.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
-namespace Grocery.Data
+namespace Grocery.Models
 {
     public class ShoppingCart
     {
         private List<Items> shoppingCartItems = new List<Items>();
 
-        public List<Items> ItemsInCart { get { return shoppingCartItems; } }
+        public List<Items> GetCartItems { get { return shoppingCartItems; } }
 
-        public List<Items> GetCartItems()
+        public void AddItem(Items item)
         {
-            return shoppingCartItems;
+            shoppingCartItems.Add(item);
         }
+
+        public int Count()
+        {
+            return shoppingCartItems.Count;
+        } 
 
         public List<Items> ChangeShoppingCartItemAmount(int id, bool math)
         {
-            foreach (var item in ItemsInCart)
+            foreach (var item in GetCartItems)
             {
                 if(item.Id == id)
                 {
@@ -45,15 +46,15 @@ namespace Grocery.Data
                 }
 
             }
-            return ItemsInCart;
+            return GetCartItems;
         }
         public List<Items> RemoveCartItem(int id)
         {
-            foreach (var item in ItemsInCart)
+            foreach (var item in GetCartItems)
             {
                 if(item.Id == id)
                 {
-                    ItemsInCart.Remove(item);
+                    GetCartItems.Remove(item);
                     break;
                 }
             }

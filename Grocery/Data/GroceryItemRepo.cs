@@ -180,7 +180,7 @@ namespace Grocery.Data
             },
             new Items()
                 {
-                    Id = 0,
+                    Id = 21,
                     ItemName = "Banana",
                     Type = "Fruit",
                     Price = 2,
@@ -188,7 +188,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 1,
+                    Id = 22,
                     ItemName = "Blackberry",
                     Type = "Fruit",
                     Price = 2,
@@ -196,7 +196,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 2,
+                    Id = 23,
                     ItemName = "Broccoli",
                     Type = "Vegetable",
                     Price = 2,
@@ -204,7 +204,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 3,
+                    Id = 24,
                     ItemName = "Brown Rice",
                     Type = "Grain",
                     Price = 3,
@@ -212,7 +212,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 4,
+                    Id = 25,
                     ItemName = "Carrot",
                     Type = "Vegetable",
                     Price = 1,
@@ -220,7 +220,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 5,
+                    Id = 26,
                     ItemName = "Celery",
                     Type = "Vegetable",
                     Price = 2,
@@ -228,7 +228,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 6,
+                    Id = 27,
                     ItemName = "Cucumber",
                     Type = "Vegetable",
                     Price = 1,
@@ -236,7 +236,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 7,
+                    Id = 28,
                     ItemName = "Edamame Beans",
                     Type = "Vegetable",
                     Price = 3,
@@ -244,7 +244,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 8,
+                    Id = 29,
                     ItemName = "Ginger",
                     Type = "Vegetable",
                     Price = 2,
@@ -252,7 +252,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 9,
+                    Id = 30,
                     ItemName = "Green Apple",
                     Type = "Fruit",
                     Price = 5,
@@ -260,7 +260,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 10,
+                    Id = 31,
                     ItemName = "Green Bean Can",
                     Type = "Vegetable",
                     Price = 1,
@@ -268,14 +268,14 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 11,
+                    Id = 32,
                     ItemName = "Green Pepper",
                     Type = "Vegetable",
                     Price = 1,
                     Description = "Stuff with rice or slice up for salad. Price per unit."
                 },new Items()
                 {
-                    Id = 12,
+                    Id = 33,
                     ItemName = "Kidney Beans Can",
                     Type = "Vegetable",
                     Price = 1,
@@ -283,7 +283,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 13,
+                    Id = 34,
                     ItemName = "Onion",
                     Type = "Vegetable",
                     Price = 1,
@@ -291,7 +291,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 14,
+                    Id = 35,
                     ItemName = "Pineapple Can",
                     Type = "Fruit",
                     Price = 1,
@@ -299,7 +299,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 15,
+                    Id = 36,
                     ItemName = "Potato",
                     Type = "Vegetable",
                     Price = 4,
@@ -307,7 +307,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 16,
+                    Id = 37,
                     ItemName = "Pumpkin Can",
                     Type = "Fruit",
                     Price = 2,
@@ -315,7 +315,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 17,
+                    Id = 38,
                     ItemName = "Red Apple",
                     Type = "Fruit",
                     Price = 4,
@@ -323,7 +323,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 18,
+                    Id = 39,
                     ItemName = "Rye Bread",
                     Type = "Grain",
                     Price = 1,
@@ -331,7 +331,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 19,
+                    Id = 40,
                     ItemName = "Salsa",
                     Type = "Vegetable",
                     Price = 2,
@@ -339,7 +339,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 20,
+                    Id = 41,
                     ItemName = "Sphaghetti Squash",
                     Type = "Vegetable",
                     Price = 2,
@@ -347,7 +347,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 21,
+                    Id = 42,
                     ItemName = "Strawberry",
                     Type = "Fruit",
                     Price = 2,
@@ -355,7 +355,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 22,
+                    Id = 43,
                     ItemName = "Sweet Potato",
                     Type = "Vegetable",
                     Price = 1,
@@ -363,7 +363,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 23,
+                    Id = 44,
                     ItemName = "Tortilla",
                     Type = "Grain",
                     Price = 2,
@@ -371,7 +371,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 24,
+                    Id = 45,
                     ItemName = "Wheat Bread",
                     Type = "Grain",
                     Price = 1,
@@ -379,7 +379,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 25,
+                    Id = 46,
                     ItemName = "White Bread",
                     Type = "Grain",
                     Price = 1,
@@ -387,7 +387,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 26,
+                    Id = 47,
                     ItemName = "White Rice",
                     Type = "Grain",
                     Price = 2,
@@ -395,7 +395,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 27,
+                    Id = 48,
                     ItemName = "Yellow Squash",
                     Type = "Vegetable",
                     Price = 1,
@@ -403,7 +403,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 0,
+                    Id = 49,
                     ItemName = "Butter",
                     Type = "Ingredient",
                     Price = 1,
@@ -411,7 +411,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 1,
+                    Id = 50,
                     ItemName = "Chicken Eggs",
                     Type = "Ingredient",
                     Price = 3,
@@ -419,7 +419,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 2,
+                    Id = 51,
                     ItemName = "Cottage Cheese",
                     Type = "Ingredient",
                     Price = 3,
@@ -427,7 +427,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 3,
+                    Id = 52,
                     ItemName = "Cream Cheese",
                     Type = "Ingredient",
                     Price = 2,
@@ -435,7 +435,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 4,
+                    Id = 53,
                     ItemName = "Flour",
                     Type = "Ingredient",
                     Price = 4,
@@ -443,7 +443,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 5,
+                    Id = 54,
                     ItemName = "Milk",
                     Type = "Ingredient",
                     Price = 3,
@@ -451,7 +451,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 6,
+                    Id = 55,
                     ItemName = "Olive Oil",
                     Type = "Ingredient",
                     Price = 4,
@@ -459,7 +459,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 7,
+                    Id = 56,
                     ItemName = "Pepper",
                     Type = "Spice",
                     Price = 1,
@@ -467,7 +467,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 8,
+                    Id = 57,
                     ItemName = "Red Pepper",
                     Type = "Spice",
                     Price = 1,
@@ -475,7 +475,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 9,
+                    Id = 58,
                     ItemName = "Salt",
                     Type = "Spice",
                     Price = 1,
@@ -483,7 +483,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 10,
+                    Id = 59,
                     ItemName = "Sour Cream",
                     Type = "Ingredient",
                     Price = 3,
@@ -491,7 +491,7 @@ namespace Grocery.Data
                 },
                 new Items()
                 {
-                    Id = 11,
+                    Id = 60,
                     ItemName = "Vegetable Broth",
                     Type = "Ingredient",
                     Price = 3,
