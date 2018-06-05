@@ -502,7 +502,7 @@ namespace Grocery.Data
         {
             return _items;
         }
-        public static Items GetItems(int id)
+        public static Items GetItem(int id)
         {
             Items ItemsToReturn = null;
             foreach (var item in _items)

@@ -1,4 +1,4 @@
-﻿@model Grocery.Models.ShoppingCart
+﻿@model Grocery.Models.Items[]
 @{
     ViewBag.Title = "Shopping Cart";
 }
@@ -12,10 +12,16 @@
         <div>
             <div class="form-group">
                 <h4>Total Price of Purchase: $@ViewBag.TotalPrice.00</h4>
-                <h4>@Model.GetCartItems</h4>
-                <button type="submit" class="btn btn-primary auto" value="false">-</button>
-                <button type="submit" class="btn btn-primary auto" value="false">+</button>
-                <button type="submit" class="btn btn-primary auto" value="false">Delete</button>
+                @foreach (var item in Model)
+                {
+                    <h4>@item.ItemName</h4>
+                    <img src="/Images/Baking/@item.CoverImageFileName" alt="@item.ItemName" class="h-5 image-responsive" />
+                    <h3>$@item.Price.00</h3>
+                    <p class="mb-5"><bold>@item.Description</bold></p>
+                    <button type="submit" class="btn btn-primary auto" value="false">-</button>
+                    <button type="submit" class="btn btn-primary auto" value="false">+</button>
+                    <button type="submit" class="btn btn-primary auto" value="false">Delete</button>
+                }
             </div>
         </div>
     }

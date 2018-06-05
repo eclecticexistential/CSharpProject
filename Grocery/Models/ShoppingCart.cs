@@ -1,60 +1,49 @@
-﻿using System.Collections.Generic;
+﻿using Grocery.Data;
+using System.Collections.Generic;
 
 namespace Grocery.Models
 {
     public class ShoppingCart
     {
         private List<Items> shoppingCartItems = new List<Items>();
-
-        public List<Items> GetCartItems { get { return shoppingCartItems; } }
-
-        public void AddItem(Items item)
+        public Items[] ShowItems()
         {
-            shoppingCartItems.Add(item);
+            return shoppingCartItems.ToArray();
         }
 
         public int Count()
         {
             return shoppingCartItems.Count;
-        } 
+        }
 
-        public List<Items> ChangeShoppingCartItemAmount(int id, bool math)
+        public List<Items> AddItems(Items item)
         {
-            foreach (var item in GetCartItems)
+            if(shoppingCartItems.Count > 0)
             {
-                if(item.Id == id)
+                foreach (var itemsInCart in shoppingCartItems)
                 {
-                    if (math)
+                    if (item.Id == itemsInCart.Id)
                     {
-                        item.Amount += 1;
-                        item.Price += item.Price;
+                        itemsInCart.Amount += 1;
+                        itemsInCart.Price += itemsInCart.Price;
                         break;
                     }
-                    else
-                    {
-                        if(item.Amount > 1)
-                        {
-                            item.Amount -= 1;
-                            item.Price -= item.Price;
-                            break;
-                        }
-                        if(item.Amount == 1)
-                        {
-                            return RemoveCartItem(item.Id);
-                        }
-                    }
                 }
-
             }
-            return GetCartItems;
+            else
+            {
+                shoppingCartItems.Add(item);
+            }
+            return shoppingCartItems;
         }
+        
         public List<Items> RemoveCartItem(int id)
         {
-            foreach (var item in GetCartItems)
+            foreach (var item in shoppingCartItems)
             {
                 if(item.Id == id)
                 {
-                    GetCartItems.Remove(item);
+                    shoppingCartItems.Remove(item);
                     break;
                 }
             }

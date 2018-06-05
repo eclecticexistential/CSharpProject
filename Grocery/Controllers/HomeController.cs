@@ -33,21 +33,19 @@ namespace Grocery.Controllers
         }
 
         [HttpPost]
-        public ActionResult Plant(Items items)
+        public ActionResult Plant(string Item)
         {
+            int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
-                }
-                catch
-                {
-                    var entry = GroceryItemRepo.GetItems(items.Id);
-                    _shoppingCart.GetCartItems.Add(entry);
-                }
+                var entry = GroceryItemRepo.GetItem(id);
+                _shoppingCart.AddItems(entry);
+                return View("ShoppingCart", _shoppingCart);
             }
-            return RedirectToAction("Plant");
+            else
+            {
+                return View();
+            }
         }
 
 
@@ -59,21 +57,19 @@ namespace Grocery.Controllers
         }
 
         [HttpPost]
-        public ActionResult Meat(Items items)
+        public ActionResult Meat(string Item)
         {
+            int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
-                }
-                catch
-                {
-                    var entry = GroceryItemRepo.GetItems(items.Id);
-                    _shoppingCart.GetCartItems.Add(entry);
-                }
+                var entry = GroceryItemRepo.GetItem(id);
+                _shoppingCart.AddItems(entry);
+                return View("ShoppingCart", _shoppingCart);
             }
-            return RedirectToAction("Meat");
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult Baking()
@@ -83,24 +79,20 @@ namespace Grocery.Controllers
             return View(dasBake);
         }
 
-        [ActionName("Baking"), HttpPost]
-        public ActionResult BakingPost()
+        [HttpPost]
+        public ActionResult Baking(string Item)
         {
-            int id = Int32.Parse(Request.Form["Item"]);
+            int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                //int currentAmount = _shoppingCart.Count();
-                //if(currentAmount > 0)
-                //{
-                //    _shoppingCart.ChangeShoppingCartItemAmount(id, true);
-                //}
-                //else
-                //{
-                    var entry = GroceryItemRepo.GetItems(id);
-                    _shoppingCart.AddItem(entry);
-                //}
+                var entry = GroceryItemRepo.GetItem(id);
+                _shoppingCart.AddItems(entry);
+                return View("ShoppingCart",_shoppingCart.ShowItems());
             }
-            return View("ShoppingCart", _shoppingCart);
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult Recipes()
@@ -111,30 +103,32 @@ namespace Grocery.Controllers
         }
 
         [HttpPost]
-        public ActionResult Recipes(Items items)
+        public ActionResult Recipes(string Item)
         {
+            int id = Int32.Parse(Item);
+            if (_shoppingCart == null)
+            {
+                _shoppingCart = new ShoppingCart();
+            }
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _shoppingCart.ChangeShoppingCartItemAmount(items.Id, true);
-                }
-                catch
-                {
-                    var entry = GroceryItemRepo.GetItems(items.Id);
-                    _shoppingCart.GetCartItems.Add(entry);
-                }
+                var entry = GroceryItemRepo.GetItem(id);
+                _shoppingCart.AddItems(entry);
+                return View("ShoppingCart", _shoppingCart);
             }
-            return RedirectToAction("Recipes");
+            else
+            {
+                return View();
+            }
         }
 
-        public ActionResult ShoppingCart()
+        public ActionResult ShoppingCart(ShoppingCart _shoppingCart)
         {
             ViewBag.Message = "Items in Your Shopping Cart";
-            var dasCart = _shoppingCart.GetCartItems;
-            int totalPrice = _shoppingCart.GetCartItems.Sum(e => e.Price);
+            var items = _shoppingCart.ShowItems();
+            int totalPrice = items.Sum(e => e.Price);
             ViewBag.TotalPrice = totalPrice;
-            return View(dasCart);
+            return View(items);
         }
 
         //[HttpPost]
