@@ -7,15 +7,10 @@ namespace Grocery.Models
     {
         private List<Items> shoppingCartItems = new List<Items>();
         private int shoppingCartId = 0;
-        public Items[] ShowItems()
-        {
-            return shoppingCartItems.ToArray();
-        }
 
-        public int Count()
-        {
-            return shoppingCartItems.Count;
-        }
+        public Items[] ShowItems => shoppingCartItems.ToArray();
+
+        public int Count => shoppingCartItems.Count;
 
         public List<Items> AddItems(Items item)
         {
@@ -25,7 +20,13 @@ namespace Grocery.Models
             }
             else if(shoppingCartItems.Count > 0)
             {
-                foreach (var itemsInCart in shoppingCartItems)
+                //public ActionResult PersonDetail(int id)
+                //{
+                //    var person = People.SingleOrDefault(p => p.PersonId == id);
+                //    if (person != null)
+                //    {
+
+                        foreach (var itemsInCart in shoppingCartItems)
                 {
                     if (item.Id == itemsInCart.Id)
                     {
