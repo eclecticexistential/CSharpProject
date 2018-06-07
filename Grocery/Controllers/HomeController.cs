@@ -11,13 +11,18 @@ namespace Grocery.Controllers
 {
     public class HomeController : Controller
     {
-        private GroceryItemRepo _groceryItemRepo = null;
-        private ShoppingCart _shoppingCart = null;
+        private static GroceryItemRepo _groceryItemRepo = null;
+        private static ShoppingCart _shoppingCart = null;
 
-        public HomeController()
+        static HomeController()
         {
             _groceryItemRepo = new GroceryItemRepo();
             _shoppingCart = new ShoppingCart();
+        }
+
+        public HomeController()
+        {
+            ViewBag._shoppingCart = _shoppingCart;
         }
 
         public ActionResult Index()
@@ -40,7 +45,7 @@ namespace Grocery.Controllers
             {
                 var entry = GroceryItemRepo.GetItem(id);
                 _shoppingCart.AddItems(entry);
-                return View("ShoppingCart", _shoppingCart);
+                return RedirectToAction("Plant");
             }
             else
             {
@@ -64,7 +69,7 @@ namespace Grocery.Controllers
             {
                 var entry = GroceryItemRepo.GetItem(id);
                 _shoppingCart.AddItems(entry);
-                return View("ShoppingCart", _shoppingCart);
+                return RedirectToAction("Meat");
             }
             else
             {
@@ -87,7 +92,7 @@ namespace Grocery.Controllers
             {
                 var entry = GroceryItemRepo.GetItem(id);
                 _shoppingCart.AddItems(entry);
-                return View("ShoppingCart",_shoppingCart.ShowItems());
+                return RedirectToAction("Baking");
             }
             else
             {
@@ -106,15 +111,11 @@ namespace Grocery.Controllers
         public ActionResult Recipes(string Item)
         {
             int id = Int32.Parse(Item);
-            if (_shoppingCart == null)
-            {
-                _shoppingCart = new ShoppingCart();
-            }
             if (ModelState.IsValid)
             {
                 var entry = GroceryItemRepo.GetItem(id);
                 _shoppingCart.AddItems(entry);
-                return View("ShoppingCart", _shoppingCart);
+                return RedirectToAction("Recipes");
             }
             else
             {
@@ -122,13 +123,10 @@ namespace Grocery.Controllers
             }
         }
 
-        public ActionResult ShoppingCart(ShoppingCart _shoppingCart)
+        public ActionResult ShoppingCart()
         {
             ViewBag.Message = "Items in Your Shopping Cart";
-            var items = _shoppingCart.ShowItems();
-            int totalPrice = items.Sum(e => e.Price);
-            ViewBag.TotalPrice = totalPrice;
-            return View(items);
+            return View(_shoppingCart);
         }
 
         //[HttpPost]

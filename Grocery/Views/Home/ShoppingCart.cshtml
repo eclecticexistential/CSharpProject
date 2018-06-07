@@ -1,4 +1,4 @@
-﻿@model Grocery.Models.Items[]
+﻿@model Grocery.Models.ShoppingCart
 @{
     ViewBag.Title = "Shopping Cart";
 }
@@ -9,20 +9,23 @@
 
     @using (Html.BeginForm())
     {
-        <div>
-            <div class="form-group">
-                <h4>Total Price of Purchase: $@ViewBag.TotalPrice.00</h4>
-                @foreach (var item in Model)
-                {
+    <div>
+        <h4>Total Price of Purchase: $@Model.ShowItems().Sum(x => x.Price).00</h4>
+        <ul class="row">
+            @foreach (var item in Model.ShowItems())
+            {
+                <li class="form-group col-md-12 noDot">
                     <h4>@item.ItemName</h4>
-                    <img src="/Images/Baking/@item.CoverImageFileName" alt="@item.ItemName" class="h-5 image-responsive" />
-                    <h3>$@item.Price.00</h3>
-                    <p class="mb-5"><bold>@item.Description</bold></p>
-                    <button type="submit" class="btn btn-primary auto" value="false">-</button>
-                    <button type="submit" class="btn btn-primary auto" value="false">+</button>
-                    <button type="submit" class="btn btn-primary auto" value="false">Delete</button>
-                }
-            </div>
-        </div>
+                    <img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive  h-6" />
+                    <h4>$@item.Price.00</h4>
+                    <button type="submit" class="btn btn-primary" @Model.DeductItem(item)>-</button>
+                    <h4>@item.Amount</h4>
+                    <button type="submit" class="btn btn-primary" @Model.AddItems(item)>+</button>
+                    <button type="submit" class="btn btn-primary" @Model.RemoveCartItem(item.Id)>Delete</button>
+                </li>
+            }
+        </ul>
+        <button type="submit" class="btn btn-warning" value="checkout">Checkout</button>
+    </div>
     }
 </div>

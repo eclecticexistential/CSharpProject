@@ -1,7 +1,6 @@
 ﻿@model Grocery.Models.Items[]
 @{
     ViewBag.Title = "Meats";
-    ViewBag._shoppingCart = true;
 }
 <div class="container text-center">
     <h2>@ViewBag.Title</h2>
@@ -15,7 +14,7 @@
             <div class="form-group">
                 <div class="col-md-2 h-2">
                     <h4>@meatType.ItemName</h4>
-                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
+                    <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                     <h3>$@meatType.Price.00</h3>
                     <p class="mb-5"><bold>@meatType.Description</bold></p>
                     <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
@@ -30,7 +29,7 @@
             <div class="form-group">
                 <div class="col-md-2 h-2">
                     <h4>@meatType.ItemName</h4>
-                    <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
+                    <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                     <h3>$@meatType.Price.00</h3>
                     <p class="mb-5"><bold>@meatType.Description</bold></p>
                     <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
@@ -45,7 +44,7 @@
                     <div class="form-group">
                         <div class="col-md-2 h-2">
                             <h4>@meatType.ItemName</h4>
-                            <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
+                            <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                             <h3>$@meatType.Price.00</h3>
                             <p class="mb-5"><bold>@meatType.Description</bold></p>
                             <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
@@ -61,7 +60,7 @@
                 <div class="form-group">
                     <div class="col-md-2 h-2">
                         <h4>@meatType.ItemName</h4>
-                        <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
+                        <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                         <h3>$@meatType.Price.00</h3>
                         <p class="mb-5"><bold>@meatType.Description</bold></p>
                         <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
@@ -76,7 +75,7 @@
                 <div class="form-group">
                     <div class="col-md-2 h-2">
                         <h4>@meatType.ItemName</h4>
-                        <img src="/Images/Meats/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
+                        <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
                         <h3>$@meatType.Price.00</h3>
                         <p class="mb-5"><bold>@meatType.Description</bold></p>
                         <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>

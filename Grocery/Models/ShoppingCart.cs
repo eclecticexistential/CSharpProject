@@ -6,6 +6,7 @@ namespace Grocery.Models
     public class ShoppingCart
     {
         private List<Items> shoppingCartItems = new List<Items>();
+        private int shoppingCartId = 0;
         public Items[] ShowItems()
         {
             return shoppingCartItems.ToArray();
@@ -18,7 +19,11 @@ namespace Grocery.Models
 
         public List<Items> AddItems(Items item)
         {
-            if(shoppingCartItems.Count > 0)
+            if (shoppingCartItems.Count == 0)
+            {
+                shoppingCartItems.Add(item);
+            }
+            else if(shoppingCartItems.Count > 0)
             {
                 foreach (var itemsInCart in shoppingCartItems)
                 {
@@ -29,10 +34,21 @@ namespace Grocery.Models
                         break;
                     }
                 }
-            }
-            else
-            {
                 shoppingCartItems.Add(item);
+            }
+            return shoppingCartItems;
+        }
+
+        public List<Items> DeductItem(Items item)
+        {
+            foreach (var itemsInCart in shoppingCartItems)
+            {
+                if (item.Id == itemsInCart.Id)
+                {
+                    itemsInCart.Amount -= 1;
+                    itemsInCart.Price -= itemsInCart.Price;
+                    break;
+                }
             }
             return shoppingCartItems;
         }

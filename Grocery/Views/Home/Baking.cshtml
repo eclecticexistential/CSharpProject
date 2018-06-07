@@ -1,7 +1,6 @@
 ﻿@model Grocery.Models.Items[]
 @{
     ViewBag.Title = "Baking";
-    ViewBag._shoppingCart = true;
 }
 
 <div class="container text-center">
@@ -17,7 +16,7 @@
             <div class="form-group">
                 <div class="col-md-2 h-2">
                     <h4>@ingType.ItemName</h4>
-                    <img src="/Images/Baking/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
+                    <img src="/Images/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
                     <h3>$@ingType.Price.00</h3>
                     <p class="mb-5"><bold>@ingType.Description</bold></p>
                     <button type="submit" class="btn btn-primary auto" name="Item" value="@ingType.Id">Add to Cart</button>
@@ -32,7 +31,7 @@
             <div class="form-group">
                 <div class="col-md-2 h-2">
                     <h4>@ingType.ItemName</h4>
-                    <img src="/Images/Baking/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
+                    <img src="/Images/@ingType.CoverImageFileName" alt="@ingType.ItemName" class="h-5 image-responsive" />
                     <h3>$@ingType.Price.00</h3>
                     <p class="mb-5"><bold>@ingType.Description</bold></p>
                     <button type="submit" class="btn btn-primary auto" name="Item" value="@ingType.Id">Add to Cart</button>
