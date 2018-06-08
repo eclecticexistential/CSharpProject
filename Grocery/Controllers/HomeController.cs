@@ -43,8 +43,7 @@ namespace Grocery.Controllers
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                var entry = GroceryItemRepo.GetItem(id);
-                _shoppingCart.AddItems(entry);
+                _shoppingCart.AddItems(id);
                 return RedirectToAction("Plant");
             }
             else
@@ -67,8 +66,7 @@ namespace Grocery.Controllers
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                var entry = GroceryItemRepo.GetItem(id);
-                _shoppingCart.AddItems(entry);
+                _shoppingCart.AddItems(id);
                 return RedirectToAction("Meat");
             }
             else
@@ -90,8 +88,7 @@ namespace Grocery.Controllers
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                var entry = GroceryItemRepo.GetItem(id);
-                _shoppingCart.AddItems(entry);
+                _shoppingCart.AddItems(id);
                 return RedirectToAction("Baking");
             }
             else
@@ -113,8 +110,7 @@ namespace Grocery.Controllers
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                var entry = GroceryItemRepo.GetItem(id);
-                _shoppingCart.AddItems(entry);
+                _shoppingCart.AddItems(id);
                 return RedirectToAction("Recipes");
             }
             else
@@ -129,24 +125,37 @@ namespace Grocery.Controllers
             return View(_shoppingCart);
         }
 
-        //[HttpPost]
-        //public ActionResult ShoppingCart(Items items)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _shoppingCart.RemoveCartItem(items.Id);
-        //    }
-        //    return RedirectToAction("ShoppingCart", items);
-        //}
+        [HttpPost]
+        public void DeleteItem(string Item)
+        {
+            int id = Int32.Parse(Item);
+            if (ModelState.IsValid)
+            {
+                _shoppingCart.RemoveCartItem(id);
+                RedirectToAction("ShoppingCart");
+            }
+        }
 
-        //[HttpPost]
-        //public ActionResult ShoppingCart(Items items, bool math)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _shoppingCart.ChangeShoppingCartItemAmount(items.Id, math);
-        //    }
-        //    return RedirectToAction("ShoppingCart", items);
-        //}
+        [HttpPost]
+        public ActionResult AddItem(string Item)
+        {
+            int id = Int32.Parse(Item);
+            if (ModelState.IsValid)
+            {
+                _shoppingCart.AddItems(id);
+            }
+            return RedirectToAction("ShoppingCart");
+        }
+
+        [HttpPost]
+        public ActionResult DeductItem(string Item)
+        {
+            int id = Int32.Parse(Item);
+            if (ModelState.IsValid)
+            {
+                _shoppingCart.DeductItem(id);
+            }
+            return RedirectToAction("ShoppingCart");
+        }
     }
 }

@@ -6,55 +6,33 @@
 <div class="container text-center">
     <h2>@ViewBag.Title</h2>
     <p>@ViewBag.Message</p>
+    <h4>Total Price of Purchase: $@Model.ShowItems().Sum(x => x.Price).00</h4>
 
     @using (Html.BeginForm())
     {
     <div>
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>Total Price of Purchase: $@Model.ShowItems.Sum(x => x.Price).00</th>
-                    <th></th>
-                </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.ShowItems)
+                @foreach (var item in Model.ShowItems())
                 {
                 <tr>
+                    <td><img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /></td>
                     <td>@item.ItemName</td>
-                    <td><img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive  h-6" /></td>
                     <td>$@item.Price.00</td>
-                    <td><button type="submit" class="btn btn-primary" @Model.DeductItem(item)>-</button></td>
+                    <td>@Html.ActionLink("-", "DeductItem", new { items = item }, new { @class = "btn btn-primary" })</td>
                     <td>@item.Amount</td>
-                    <td><button type="submit" class="btn btn-primary" @Model.AddItems(item)>+</button></td>
-                    |
+                    <td>@Html.ActionLink("+", "AddItem", new { items = item }, new { @class = "btn btn-primary" })</td>
                     <td>
-                        <a data-toggle="modal" href="@Model.RemoveCartItem(item.Id)">Delete</a>
-                        <div class="modal fade" tabindex="-1" role="dialog">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    @using (Html.BeginForm())
-                                    {
-                                        <input type="hidden" value="@item.Id" name="ItemId" />
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Delete @item.ItemName</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            Are you sure you want to delete @item.ItemName?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary">Yes</button>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                        </div>
-                                    }
-                                </div>
-                            </div>
-                        </div>
+                        @using (Html.BeginForm())
+                        {
+                        <input type="hidden" value="@item.Id" name="ItemDelete" />
+                        <button type="submit" class="btn btn-warning">Delete</button>
+                        }
                     </td>
-
                 </tr>
-}
+                }
             </tbody>
         </table>
         <button type="submit" class="btn btn-warning" value="checkout">Checkout</button>

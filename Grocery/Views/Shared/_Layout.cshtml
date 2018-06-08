@@ -24,11 +24,14 @@
                     <li>@Html.ActionLink("Plant", "Plant", "Home")</li>
                     <li>@Html.ActionLink("Meat", "Meat", "Home")</li>
                     <li>@Html.ActionLink("Baking", "Baking", "Home")</li>
+                    <li>@Html.ActionLink("Recipes", "Recipes", "Home")</li>
                     @if (ViewBag._shoppingCart.Count() > 0)
-                    {
-                        <li>@Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null, 
-                           new { @class = "btn btn-default" })</li>
-                    }
+    {
+                <li>
+                    @Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null,
+        new { @class = "btn btn-default" })
+                </li>
+}
                 </ul>
             </div>
         </div>

@@ -1,4 +1,5 @@
 ﻿using Grocery.Data;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Grocery.Models
@@ -8,47 +9,42 @@ namespace Grocery.Models
         private List<Items> shoppingCartItems = new List<Items>();
         private int shoppingCartId = 0;
 
-        public Items[] ShowItems => shoppingCartItems.ToArray();
-
-        public int Count => shoppingCartItems.Count;
-
-        public List<Items> AddItems(Items item)
+        public Items[] ShowItems()
         {
-            if (shoppingCartItems.Count == 0)
-            {
-                shoppingCartItems.Add(item);
-            }
-            else if(shoppingCartItems.Count > 0)
-            {
-                //public ActionResult PersonDetail(int id)
-                //{
-                //    var person = People.SingleOrDefault(p => p.PersonId == id);
-                //    if (person != null)
-                //    {
+            return shoppingCartItems.ToArray();
+        }
 
-                        foreach (var itemsInCart in shoppingCartItems)
-                {
-                    if (item.Id == itemsInCart.Id)
-                    {
-                        itemsInCart.Amount += 1;
-                        itemsInCart.Price += itemsInCart.Price;
-                        break;
-                    }
-                }
+        public int Count()
+        {
+            return shoppingCartItems.Count;
+        }
+
+        public List<Items> AddItems(int id)
+        {
+            var curItem = shoppingCartItems.SingleOrDefault(p => p.Id == id);
+            if (curItem != null)
+            {
+                curItem.Amount += 1;
+                curItem.Price += curItem.Price;
+            }
+            else
+            {
+                var item = GroceryItemRepo.GetItem(id);
                 shoppingCartItems.Add(item);
             }
             return shoppingCartItems;
         }
 
-        public List<Items> DeductItem(Items item)
+        public List<Items> DeductItem(int id)
         {
-            foreach (var itemsInCart in shoppingCartItems)
+            var curItem = shoppingCartItems.SingleOrDefault(p => p.Id == id);
+            if (curItem != null)
             {
-                if (item.Id == itemsInCart.Id)
+                curItem.Amount -= 1;
+                curItem.Price -= curItem.Price;
+                if (curItem.Amount == 0)
                 {
-                    itemsInCart.Amount -= 1;
-                    itemsInCart.Price -= itemsInCart.Price;
-                    break;
+                    RemoveCartItem(curItem.Id);
                 }
             }
             return shoppingCartItems;
@@ -56,13 +52,10 @@ namespace Grocery.Models
         
         public List<Items> RemoveCartItem(int id)
         {
-            foreach (var item in shoppingCartItems)
+            var curItem = shoppingCartItems.SingleOrDefault(p => p.Id == id);
+            if (curItem != null)
             {
-                if(item.Id == id)
-                {
-                    shoppingCartItems.Remove(item);
-                    break;
-                }
+                shoppingCartItems.Remove(curItem);
             }
             return shoppingCartItems;
         }

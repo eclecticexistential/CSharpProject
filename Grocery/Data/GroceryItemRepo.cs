@@ -16,7 +16,8 @@ namespace Grocery.Data
                 ItemName = "Bacon",
                 Type = "Pig",
                 Price = 2,
-                Description = "Tasty pork product. Price per lbs."
+                Description = "Tasty pork product. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -24,7 +25,8 @@ namespace Grocery.Data
                 ItemName = "Baloney",
                 Type = "Pig",
                 Price = 1,
-                Description = "Eat fried or straight out of the package. Price per unit."
+                Description = "Eat fried or straight out of the package. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -32,7 +34,8 @@ namespace Grocery.Data
                 ItemName = "Beef Ribs",
                 Type = "Cow",
                 Price = 13,
-                Description = "Ribs are finger licking good. Price per slab."
+                Description = "Ribs are finger licking good. Price per slab.",
+                Amount = 1
             },
             new Items()
             {
@@ -40,7 +43,8 @@ namespace Grocery.Data
                 ItemName = "Beef Tbone Steak",
                 Type = "Cow",
                 Price = 4,
-                Description = "Great grilled or baked. Price per lbs."
+                Description = "Great grilled or baked. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -48,7 +52,8 @@ namespace Grocery.Data
                 ItemName = "Brisket",
                 Type = "Cow",
                 Price = 11,
-                Description = "Slow cook to perfection. Price per unit."
+                Description = "Slow cook to perfection. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -56,7 +61,8 @@ namespace Grocery.Data
                 ItemName = "Chicken Breast",
                 Type = "Chicken",
                 Price = 3,
-                Description = "Grill or bake for best results. Price per lbs."
+                Description = "Grill or bake for best results. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -64,7 +70,8 @@ namespace Grocery.Data
                 ItemName = "Chicken Strips",
                 Type = "Chicken",
                 Price = 2,
-                Description = "Great pan fried. Price per lbs."
+                Description = "Great pan fried. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -72,7 +79,8 @@ namespace Grocery.Data
                 ItemName = "Chicken Whole",
                 Type = "Chicken",
                 Price = 15,
-                Description = "Better than getting a bucket's worth. Price per unit."
+                Description = "Better than getting a bucket's worth. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -80,7 +88,8 @@ namespace Grocery.Data
                 ItemName = "Chicken Wings",
                 Type = "Chicken",
                 Price = 2,
-                Description = "All the spice combinations. Price per lbs."
+                Description = "All the spice combinations. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -88,7 +97,8 @@ namespace Grocery.Data
                 ItemName = "Ham",
                 Type = "Pig",
                 Price = 18,
-                Description = "Bake in oven for supreme deliciousness. Price per unit."
+                Description = "Bake in oven for supreme deliciousness. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -96,7 +106,8 @@ namespace Grocery.Data
                 ItemName = "Hamburger",
                 Type = "Cow",
                 Price = 3,
-                Description = "80/20. Price per lbs."
+                Description = "80/20. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -104,7 +115,8 @@ namespace Grocery.Data
                 ItemName = "Hot Dogs",
                 Type = "Pig",
                 Price = 1,
-                Description = "Grill or boil to enhance meal. Price per unit."
+                Description = "Grill or boil to enhance meal. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -112,7 +124,8 @@ namespace Grocery.Data
                 ItemName = "Pork Chops",
                 Type = "Pig",
                 Price = 2,
-                Description = "Bake to enhance flavor. Price per lbs."
+                Description = "Bake to enhance flavor. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -120,7 +133,8 @@ namespace Grocery.Data
                 ItemName = "Pork Tenderloin",
                 Type = "Pig",
                 Price = 9,
-                Description = "Scrumptious. Price per unit."
+                Description = "Scrumptious. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -128,7 +142,8 @@ namespace Grocery.Data
                 ItemName = "Rib Eye Steak",
                 Type = "Cow",
                 Price = 4,
-                Description = "Marbled beef. Price per lbs."
+                Description = "Marbled beef. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -136,7 +151,8 @@ namespace Grocery.Data
                 ItemName = "Salmon Can",
                 Type = "Fish",
                 Price = 2,
-                Description = "Great for salmon croquet. Price per unit."
+                Description = "Great for salmon croquet. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -144,7 +160,8 @@ namespace Grocery.Data
                 ItemName = "Salmon Raw",
                 Type = "Fish",
                 Price = 2,
-                Description = "Best pan fried or baked. Price per lbs."
+                Description = "Best pan fried or baked. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -152,7 +169,8 @@ namespace Grocery.Data
                 ItemName = "Top Sirloin Steak",
                 Type = "Cow",
                 Price = 4,
-                Description = "Awesome treat yo' self food. Price per lbs."
+                Description = "Awesome treat yo' self food. Price per lbs.",
+                Amount = 1
             },
             new Items()
             {
@@ -160,7 +178,8 @@ namespace Grocery.Data
                 ItemName = "Tuna Can",
                 Type = "Fish",
                 Price = 1,
-                Description = "Great for sandwiches or dip. Price per unit."
+                Description = "Great for sandwiches or dip. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -168,7 +187,8 @@ namespace Grocery.Data
                 ItemName = "Turkey Sliced",
                 Type = "Turkey",
                 Price = 2,
-                Description = "Don't let this dry out. Price per unit."
+                Description = "Don't let this dry out. Price per unit.",
+                Amount = 1
             },
             new Items()
             {
@@ -176,31 +196,35 @@ namespace Grocery.Data
                 ItemName = "Turkey Whole",
                 Type = "Turkey",
                 Price = 18,
-                Description = "Do not under cook. Price per unit."
+                Description = "Do not under cook. Price per unit.",
+                Amount = 1
             },
             new Items()
-                {
-                    Id = 21,
-                    ItemName = "Banana",
-                    Type = "Fruit",
-                    Price = 2,
-                    Description = "Open from either side. Price per unit."
-                },
-                new Items()
-                {
-                    Id = 22,
-                    ItemName = "Blackberry",
-                    Type = "Fruit",
-                    Price = 2,
-                    Description = "Fresh from the bush. Price per unit."
-                },
+            {
+                Id = 21,
+                ItemName = "Banana",
+                Type = "Fruit",
+                Price = 2,
+                Description = "Open from either side. Price per unit.",
+                Amount = 1
+            },
+            new Items()
+            {
+                Id = 22,
+                ItemName = "Blackberry",
+                Type = "Fruit",
+                Price = 2,
+                Description = "Fresh from the bush. Price per unit.",
+                Amount = 1
+            },
                 new Items()
                 {
                     Id = 23,
                     ItemName = "Broccoli",
                     Type = "Vegetable",
                     Price = 2,
-                    Description = "Best eaten before bloom. Price per unit."
+                    Description = "Best eaten before bloom. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -208,7 +232,8 @@ namespace Grocery.Data
                     ItemName = "Brown Rice",
                     Type = "Grain",
                     Price = 3,
-                    Description = "Great for many meals. Price per lbs."
+                    Description = "Great for many meals. Price per lbs.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -216,7 +241,8 @@ namespace Grocery.Data
                     ItemName = "Carrot",
                     Type = "Vegetable",
                     Price = 1,
-                    Description = "Tasty in stews or raw. Price per bunch."
+                    Description = "Tasty in stews or raw. Price per bunch.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -224,7 +250,8 @@ namespace Grocery.Data
                     ItemName = "Celery",
                     Type = "Vegetable",
                     Price = 2,
-                    Description = "Stringy. Burns a lot of calories. Price per unit."
+                    Description = "Stringy. Burns a lot of calories. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -232,7 +259,8 @@ namespace Grocery.Data
                     ItemName = "Cucumber",
                     Type = "Vegetable",
                     Price = 1,
-                    Description = "Tasty on salads. Price per unit."
+                    Description = "Tasty on salads. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -240,7 +268,8 @@ namespace Grocery.Data
                     ItemName = "Edamame Beans",
                     Type = "Vegetable",
                     Price = 3,
-                    Description = "Great source of protein. Price per unit."
+                    Description = "Great source of protein. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -248,7 +277,8 @@ namespace Grocery.Data
                     ItemName = "Ginger",
                     Type = "Vegetable",
                     Price = 2,
-                    Description = "Great spice or soup addition. Price per unit."
+                    Description = "Great spice or soup addition. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -256,7 +286,8 @@ namespace Grocery.Data
                     ItemName = "Green Apple",
                     Type = "Fruit",
                     Price = 5,
-                    Description = "Granny Smith. Crisp Price per bag."
+                    Description = "Granny Smith. Crisp Price per bag.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -264,7 +295,8 @@ namespace Grocery.Data
                     ItemName = "Green Bean Can",
                     Type = "Vegetable",
                     Price = 1,
-                    Description = "Freshness sealed in. Price per unit."
+                    Description = "Freshness sealed in. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -272,14 +304,16 @@ namespace Grocery.Data
                     ItemName = "Green Pepper",
                     Type = "Vegetable",
                     Price = 1,
-                    Description = "Stuff with rice or slice up for salad. Price per unit."
+                    Description = "Stuff with rice or slice up for salad. Price per unit.",
+                Amount = 1
                 },new Items()
                 {
                     Id = 33,
                     ItemName = "Kidney Beans Can",
                     Type = "Vegetable",
                     Price = 1,
-                    Description = "Good with rice. Price per unit."
+                    Description = "Good with rice. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -287,7 +321,8 @@ namespace Grocery.Data
                     ItemName = "Onion",
                     Type = "Vegetable",
                     Price = 1,
-                    Description = "Add to soup, stew, or salsa. Price per unit."
+                    Description = "Add to soup, stew, or salsa. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -295,7 +330,8 @@ namespace Grocery.Data
                     ItemName = "Pineapple Can",
                     Type = "Fruit",
                     Price = 1,
-                    Description = "Pairs well with cottage cheese. Price per unit."
+                    Description = "Pairs well with cottage cheese. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -303,7 +339,8 @@ namespace Grocery.Data
                     ItemName = "Potato",
                     Type = "Vegetable",
                     Price = 4,
-                    Description = "Pleasant source of potassium. Price per bag."
+                    Description = "Pleasant source of potassium. Price per bag.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -311,7 +348,8 @@ namespace Grocery.Data
                     ItemName = "Pumpkin Can",
                     Type = "Fruit",
                     Price = 2,
-                    Description = "Pumpkin muffins or pie is great year round. Price per unit."
+                    Description = "Pumpkin muffins or pie is great year round. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -319,7 +357,8 @@ namespace Grocery.Data
                     ItemName = "Red Apple",
                     Type = "Fruit",
                     Price = 4,
-                    Description = "Tastes almost as great as the green kind. Price per bag."
+                    Description = "Tastes almost as great as the green kind. Price per bag.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -327,7 +366,8 @@ namespace Grocery.Data
                     ItemName = "Rye Bread",
                     Type = "Grain",
                     Price = 1,
-                    Description = "Chaulked full of fiber. Price per unit."
+                    Description = "Chaulked full of fiber. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -335,7 +375,8 @@ namespace Grocery.Data
                     ItemName = "Salsa",
                     Type = "Vegetable",
                     Price = 2,
-                    Description = "Goes great with rice and sour cream. Price per unit."
+                    Description = "Goes great with rice and sour cream. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -343,7 +384,8 @@ namespace Grocery.Data
                     ItemName = "Sphaghetti Squash",
                     Type = "Vegetable",
                     Price = 2,
-                    Description = "Meal in itself. Price per lbs."
+                    Description = "Meal in itself. Price per lbs.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -351,7 +393,8 @@ namespace Grocery.Data
                     ItemName = "Strawberry",
                     Type = "Fruit",
                     Price = 2,
-                    Description = "Slice up in tea or water. Price per unit."
+                    Description = "Slice up in tea or water. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -359,7 +402,8 @@ namespace Grocery.Data
                     ItemName = "Sweet Potato",
                     Type = "Vegetable",
                     Price = 1,
-                    Description = "One of the best spuds around. Price per lbs."
+                    Description = "One of the best spuds around. Price per lbs.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -367,7 +411,8 @@ namespace Grocery.Data
                     ItemName = "Tortilla",
                     Type = "Grain",
                     Price = 2,
-                    Description = "Make burritos at any time. Price per unit."
+                    Description = "Make burritos at any time. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -375,7 +420,8 @@ namespace Grocery.Data
                     ItemName = "Wheat Bread",
                     Type = "Grain",
                     Price = 1,
-                    Description = "Healthy source of fiber. Price per unit."
+                    Description = "Healthy source of fiber. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -383,7 +429,8 @@ namespace Grocery.Data
                     ItemName = "White Bread",
                     Type = "Grain",
                     Price = 1,
-                    Description = "Bleached grain. Price per unit."
+                    Description = "Bleached grain. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -391,7 +438,8 @@ namespace Grocery.Data
                     ItemName = "White Rice",
                     Type = "Grain",
                     Price = 2,
-                    Description = "Add to any soup or stew to feel full. Price per lbs."
+                    Description = "Add to any soup or stew to feel full. Price per lbs.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -399,7 +447,8 @@ namespace Grocery.Data
                     ItemName = "Yellow Squash",
                     Type = "Vegetable",
                     Price = 1,
-                    Description = "Best fried. Price per lbs."
+                    Description = "Best fried. Price per lbs.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -407,7 +456,8 @@ namespace Grocery.Data
                     ItemName = "Butter",
                     Type = "Ingredient",
                     Price = 1,
-                    Description = "Used in lots of recipes. Price per lbs."
+                    Description = "Used in lots of recipes. Price per lbs.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -415,7 +465,8 @@ namespace Grocery.Data
                     ItemName = "Chicken Eggs",
                     Type = "Ingredient",
                     Price = 3,
-                    Description = "Binding agent. Price per dozen."
+                    Description = "Binding agent. Price per dozen.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -423,7 +474,8 @@ namespace Grocery.Data
                     ItemName = "Cottage Cheese",
                     Type = "Ingredient",
                     Price = 3,
-                    Description = "Great in lasanga or with fruit. Price per unit."
+                    Description = "Great in lasanga or with fruit. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -431,7 +483,8 @@ namespace Grocery.Data
                     ItemName = "Cream Cheese",
                     Type = "Ingredient",
                     Price = 2,
-                    Description = "Use to make things creamy. Price per unit."
+                    Description = "Use to make things creamy. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -439,7 +492,8 @@ namespace Grocery.Data
                     ItemName = "Flour",
                     Type = "Ingredient",
                     Price = 4,
-                    Description = "Base of making baking goods. Price per unit."
+                    Description = "Base of making baking goods. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -447,7 +501,8 @@ namespace Grocery.Data
                     ItemName = "Milk",
                     Type = "Ingredient",
                     Price = 3,
-                    Description = "Great source of calcium. Price per gallon."
+                    Description = "Great source of calcium. Price per gallon.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -455,7 +510,8 @@ namespace Grocery.Data
                     ItemName = "Olive Oil",
                     Type = "Ingredient",
                     Price = 4,
-                    Description = "Perfect for frying or salads. Price per unit."
+                    Description = "Perfect for frying or salads. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -463,7 +519,8 @@ namespace Grocery.Data
                     ItemName = "Pepper",
                     Type = "Spice",
                     Price = 1,
-                    Description = "Great on cottage cheese and potatoes. Price per unit."
+                    Description = "Great on cottage cheese and potatoes. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -471,7 +528,8 @@ namespace Grocery.Data
                     ItemName = "Red Pepper",
                     Type = "Spice",
                     Price = 1,
-                    Description = "Very Spicy. Price per unit."
+                    Description = "Very Spicy. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -479,7 +537,8 @@ namespace Grocery.Data
                     ItemName = "Salt",
                     Type = "Spice",
                     Price = 1,
-                    Description = "Sodium tastes great on most things. Price per unit."
+                    Description = "Sodium tastes great on most things. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -487,7 +546,8 @@ namespace Grocery.Data
                     ItemName = "Sour Cream",
                     Type = "Ingredient",
                     Price = 3,
-                    Description = "Tastes great on potatoes, with tuna, or as dip. Price per unit."
+                    Description = "Tastes great on potatoes, with tuna, or as dip. Price per unit.",
+                Amount = 1
                 },
                 new Items()
                 {
@@ -495,7 +555,8 @@ namespace Grocery.Data
                     ItemName = "Vegetable Broth",
                     Type = "Ingredient",
                     Price = 3,
-                    Description = "Base of many different recipes. Price per unit."
+                    Description = "Base of many different recipes. Price per unit.",
+                Amount = 1
                 }
         };
         public Items[] GetItems()
