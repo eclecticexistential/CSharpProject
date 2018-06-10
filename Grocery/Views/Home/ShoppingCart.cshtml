@@ -21,15 +21,18 @@
                     <td><img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /></td>
                     <td>@item.ItemName</td>
                     <td>$@item.Price.00</td>
-                    <td>@Html.ActionLink("-", "DeductItem", new { items = item }, new { @class = "btn btn-primary" })</td>
-                    <td>@item.Amount</td>
-                    <td>@Html.ActionLink("+", "AddItem", new { items = item }, new { @class = "btn btn-primary" })</td>
                     <td>
-                        @using (Html.BeginForm())
-                        {
-                        <input type="hidden" value="@item.Id" name="ItemDelete" />
-                        <button type="submit" class="btn btn-warning">Delete</button>
-                        }
+                        <input type="hidden" value="@item.Id" name="ItemId" />
+                        <button type="submit" class="btn btn-primary" value="sub" name="math">-</button>
+                    </td>
+                    <td>@item.Amount</td>
+                    <td>
+                        <input type="hidden" value="@item.Id" name="ItemId" />
+                        <button type="submit" class="btn btn-primary" value="add" name="math">+</button>
+                    </td>
+                    <td>
+                        <input type="hidden" value="@item.Id" name="ItemId" />
+                        <button type="submit" class="btn btn-warning" value="del" name="math">Delete</button>
                     </td>
                 </tr>
                 }
