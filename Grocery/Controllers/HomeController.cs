@@ -128,20 +128,19 @@ namespace Grocery.Controllers
         [HttpPost]
         public ActionResult ShoppingCart(int ItemId, string math)
         {
-            int id = ItemId;
             if (ModelState.IsValid)
             {
                 if(math == "del")
                 {
-                    _shoppingCart.RemoveCartItem(id);
+                    _shoppingCart.RemoveCartItem(ItemId);
                 }
                 else if (math == "sub")
                 {
-                    _shoppingCart.DeductItem(id);
+                    _shoppingCart.DeductItem(ItemId);
                 }
                 else if (math == "add")
                 {
-                    _shoppingCart.AddItems(id);
+                    _shoppingCart.AddItems(ItemId);
                 }
                 return RedirectToAction("ShoppingCart");
             }

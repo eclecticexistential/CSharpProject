@@ -8,8 +8,7 @@
     <p>@ViewBag.Message</p>
     <h4>Total Price of Purchase: $@Model.ShowItems().Sum(x => x.Price).00</h4>
 
-    @using (Html.BeginForm())
-    {
+    
     <div>
         <table class="table table-striped">
             <thead>
@@ -21,24 +20,24 @@
                     <td><img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /></td>
                     <td>@item.ItemName</td>
                     <td>$@item.Price.00</td>
-                    <td>
-                        <input type="hidden" value="@item.Id" name="ItemId" />
-                        <button type="submit" class="btn btn-primary" value="sub" name="math">-</button>
-                    </td>
-                    <td>@item.Amount</td>
-                    <td>
-                        <input type="hidden" value="@item.Id" name="ItemId" />
-                        <button type="submit" class="btn btn-primary" value="add" name="math">+</button>
-                    </td>
-                    <td>
-                        <input type="hidden" value="@item.Id" name="ItemId" />
-                        <button type="submit" class="btn btn-warning" value="del" name="math">Delete</button>
-                    </td>
+                    <td><input value="@item.Id" name="ItemId" class="hidden" /></td>
+                    @using (Html.BeginForm())
+                    {
+                        <td>
+                            <button type="submit" class="btn btn-primary" value="sub" name="math">-</button>
+                        </td>
+                        <td>@item.Amount</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary" value="add" name="math">+</button>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-warning" value="del" name="math">Delete</button>
+                        </td>
+                    }
                 </tr>
                 }
             </tbody>
         </table>
         <button type="submit" class="btn btn-warning" value="checkout">Checkout</button>
     </div>
-    }
 </div>

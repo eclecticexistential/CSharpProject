@@ -7,7 +7,6 @@ namespace Grocery.Models
     public class ShoppingCart
     {
         private List<Items> shoppingCartItems = new List<Items>();
-        private int shoppingCartId = 0;
 
         public Items[] ShowItems()
         {
@@ -24,8 +23,9 @@ namespace Grocery.Models
             var curItem = shoppingCartItems.SingleOrDefault(p => p.Id == id);
             if (curItem != null)
             {
+                int ogPrice = curItem.Price / curItem.Amount;
                 curItem.Amount += 1;
-                curItem.Price += curItem.Price;
+                curItem.Price += ogPrice;
             }
             else
             {
@@ -40,8 +40,9 @@ namespace Grocery.Models
             var curItem = shoppingCartItems.SingleOrDefault(p => p.Id == id);
             if (curItem != null)
             {
+                int ogPrice = curItem.Price / curItem.Amount;
                 curItem.Amount -= 1;
-                curItem.Price -= curItem.Price;
+                curItem.Price -= ogPrice;
                 if (curItem.Amount == 0)
                 {
                     RemoveCartItem(curItem.Id);
