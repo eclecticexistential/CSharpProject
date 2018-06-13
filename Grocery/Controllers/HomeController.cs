@@ -1,6 +1,4 @@
-﻿using Grocery.Data;
-using Grocery.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,18 +9,27 @@ namespace Grocery.Controllers
 {
     public class HomeController : Controller
     {
-        private static GroceryItemRepo _groceryItemRepo = null;
-        private static ShoppingCart _shoppingCart = null;
+        private static ShoppingCartContext _shoppingCart = null;
+        private static GroceryContext _groceryRepoItems = null;
 
         static HomeController()
         {
-            _groceryItemRepo = new GroceryItemRepo();
-            _shoppingCart = new ShoppingCart();
+            using (var _groceryRepoItems = new GroceryContext())
+            {
+            }
+
+            using (var _shoppingCart = new ShoppingCartContext())
+            {
+            }
         }
 
         public HomeController()
         {
-            ViewBag._shoppingCart = _shoppingCart;
+            using (var _shoppingCart = new ShoppingCartContext())
+            {
+
+                ViewBag._shoppingCart = _shoppingCart.ShoppingCartItems.ToArray();
+            }
         }
 
         public ActionResult Index()
@@ -33,8 +40,8 @@ namespace Grocery.Controllers
         public ActionResult Plant()
         {
             ViewBag.Message = "Food You Need to Feel Healthy and Live Well";
-            var dasPlants = _groceryItemRepo.GetItems();
-            return View(dasPlants);
+                var see = _groceryRepoItems.GroceryItems.ToArray();
+                return View(see);
         }
 
         [HttpPost]
@@ -43,7 +50,24 @@ namespace Grocery.Controllers
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                _shoppingCart.AddItems(id);
+                using (var _shoppingCartItems = new ShoppingCartContext())
+                {
+                   var item = _shoppingCartItems.ShoppingCartItems.SingleOrDefault(m => m.Id == id);
+                   if (item == null)
+                    {
+                        using (var _groceryItemRepo = new GroceryContext())
+                        {
+                            var inventory = _groceryItemRepo.GroceryItems.SingleOrDefault(m => m.Id == id);
+                            _shoppingCartItems.ShoppingCartItems.Add(inventory);
+                        }
+                    }
+                    else
+                    {
+                        int ogPrice = item.Price / item.Amount;
+                        item.Amount += 1;
+                        item.Price += ogPrice;
+                    }
+                }
                 return RedirectToAction("Plant");
             }
             else
@@ -56,8 +80,11 @@ namespace Grocery.Controllers
         public ActionResult Meat()
         {
             ViewBag.Message = "Animal Protein to Refuel";
-            var dasMeats = _groceryItemRepo.GetItems();
-            return View(dasMeats);
+            using (var _groceryItemRepo = new GroceryContext())
+            {
+                _groceryItemRepo.GroceryItems.ToArray();
+                return View(_groceryItemRepo);
+            }
         }
 
         [HttpPost]
@@ -66,7 +93,24 @@ namespace Grocery.Controllers
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                _shoppingCart.AddItems(id);
+                using (var _shoppingCartItems = new ShoppingCartContext())
+                {
+                    var item = _shoppingCartItems.ShoppingCartItems.SingleOrDefault(m => m.Id == id);
+                    if (item == null)
+                    {
+                        using (var _groceryItemRepo = new GroceryContext())
+                        {
+                            var inventory = _groceryItemRepo.GroceryItems.SingleOrDefault(m => m.Id == id);
+                            _shoppingCartItems.ShoppingCartItems.Add(inventory);
+                        }
+                    }
+                    else
+                    {
+                        int ogPrice = item.Price / item.Amount;
+                        item.Amount += 1;
+                        item.Price += ogPrice;
+                    }
+                }
                 return RedirectToAction("Meat");
             }
             else
@@ -78,8 +122,11 @@ namespace Grocery.Controllers
         public ActionResult Baking()
         {
             ViewBag.Message = "Items You Need to Bake, Season, and Create Deliciousness";
-            var dasBake = _groceryItemRepo.GetItems();
-            return View(dasBake);
+            using (var _groceryItemRepo = new GroceryContext())
+            {
+                _groceryItemRepo.GroceryItems.ToArray();
+                return View(_groceryItemRepo);
+            }
         }
 
         [HttpPost]
@@ -88,7 +135,24 @@ namespace Grocery.Controllers
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                _shoppingCart.AddItems(id);
+                using (var _shoppingCartItems = new ShoppingCartContext())
+                {
+                    var item = _shoppingCartItems.ShoppingCartItems.SingleOrDefault(m => m.Id == id);
+                    if (item == null)
+                    {
+                        using (var _groceryItemRepo = new GroceryContext())
+                        {
+                            var inventory = _groceryItemRepo.GroceryItems.SingleOrDefault(m => m.Id == id);
+                            _shoppingCartItems.ShoppingCartItems.Add(inventory);
+                        }
+                    }
+                    else
+                    {
+                        int ogPrice = item.Price / item.Amount;
+                        item.Amount += 1;
+                        item.Price += ogPrice;
+                    }
+                }
                 return RedirectToAction("Baking");
             }
             else
@@ -110,7 +174,24 @@ namespace Grocery.Controllers
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
-                _shoppingCart.AddItems(id);
+                using (var _shoppingCartItems = new ShoppingCartContext())
+                {
+                    var item = _shoppingCartItems.ShoppingCartItems.SingleOrDefault(m => m.Id == id);
+                    if (item == null)
+                    {
+                        using (var _groceryItemRepo = new GroceryContext())
+                        {
+                            var inventory = _groceryItemRepo.GroceryItems.SingleOrDefault(m => m.Id == id);
+                            _shoppingCartItems.ShoppingCartItems.Add(inventory);
+                        }
+                    }
+                    else
+                    {
+                        int ogPrice = item.Price / item.Amount;
+                        item.Amount += 1;
+                        item.Price += ogPrice;
+                    }
+                }
                 return RedirectToAction("Recipes");
             }
             else
@@ -130,19 +211,36 @@ namespace Grocery.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(math == "del")
+                using (var _shoppingCartItems = new ShoppingCartContext())
                 {
-                    _shoppingCart.RemoveCartItem(ItemId);
+                    var item = _shoppingCartItems.ShoppingCartItems.SingleOrDefault(m => m.Id == ItemId);
+                    if (item != null)
+                    {
+                        if (math == "del")
+                        {
+                            _shoppingCartItems.ShoppingCartItems.Remove(item);
+                            _shoppingCartItems.SaveChanges();
+                        }
+                        else if (math == "sub")
+                        {
+                            int ogPrice = item.Price / item.Amount;
+                            item.Amount -= 1;
+                            if (item.Amount == 0)
+                            {
+                                _shoppingCartItems.ShoppingCartItems.Remove(item);
+                                return RedirectToAction("ShoppingCart");
+                            }
+                            item.Price -= ogPrice;
+                        }
+                        else if (math == "add")
+                        {
+                            int ogPrice = item.Price / item.Amount;
+                            item.Amount += 1;
+                            item.Price += ogPrice;
+                        }
+                    }
+                    return RedirectToAction("ShoppingCart");
                 }
-                else if (math == "sub")
-                {
-                    _shoppingCart.DeductItem(ItemId);
-                }
-                else if (math == "add")
-                {
-                    _shoppingCart.AddItems(ItemId);
-                }
-                return RedirectToAction("ShoppingCart");
             }
             return View();
         }

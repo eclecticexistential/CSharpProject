@@ -150,8 +150,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\DatabaseInitializer.cs" />
-    <Compile Include="Data\GroceryItemRepo.cs" />
+    <Compile Include="Migrations\DatabaseInitializer.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

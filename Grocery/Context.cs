@@ -7,12 +7,19 @@ using System.Web;
 
 namespace Grocery
 {
-    public class Context : DbContext
+    public class GroceryContext : DbContext
     {
-        public Context() : base("GroceryItems")
+        public GroceryContext() : base("name=GroceryItems")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
         }
         public DbSet<Items> GroceryItems { get; set; }
+    }
+
+    public class ShoppingCartContext : DbContext
+    {
+        public ShoppingCartContext() : base("name = CartItems")
+        {
+        }
+        public DbSet<Items> ShoppingCartItems { get; set; }
     }
 }
