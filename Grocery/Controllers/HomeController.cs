@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,25 +10,11 @@ namespace Grocery.Controllers
 {
     public class HomeController : Controller
     {
-        private static ShoppingCartContext _shoppingCart = null;
-        private static GroceryContext _groceryRepoItems = null;
-
-        static HomeController()
-        {
-            using (var _groceryRepoItems = new GroceryContext())
-            {
-            }
-
-            using (var _shoppingCart = new ShoppingCartContext())
-            {
-            }
-        }
 
         public HomeController()
         {
             using (var _shoppingCart = new ShoppingCartContext())
             {
-
                 ViewBag._shoppingCart = _shoppingCart.ShoppingCartItems.ToArray();
             }
         }
@@ -40,8 +27,10 @@ namespace Grocery.Controllers
         public ActionResult Plant()
         {
             ViewBag.Message = "Food You Need to Feel Healthy and Live Well";
-                var see = _groceryRepoItems.GroceryItems.ToArray();
-                return View(see);
+            using (var _groceryRepoItems = new GroceryContext())
+            {
+                return View(_groceryRepoItems.GroceryItems.ToArray());
+            }
         }
 
         [HttpPost]
@@ -80,10 +69,9 @@ namespace Grocery.Controllers
         public ActionResult Meat()
         {
             ViewBag.Message = "Animal Protein to Refuel";
-            using (var _groceryItemRepo = new GroceryContext())
+            using (var _groceryRepoItems = new GroceryContext())
             {
-                _groceryItemRepo.GroceryItems.ToArray();
-                return View(_groceryItemRepo);
+                return View(_groceryRepoItems.GroceryItems.ToArray());
             }
         }
 
@@ -122,10 +110,9 @@ namespace Grocery.Controllers
         public ActionResult Baking()
         {
             ViewBag.Message = "Items You Need to Bake, Season, and Create Deliciousness";
-            using (var _groceryItemRepo = new GroceryContext())
+            using (var _groceryRepoItems = new GroceryContext())
             {
-                _groceryItemRepo.GroceryItems.ToArray();
-                return View(_groceryItemRepo);
+                return View(_groceryRepoItems.GroceryItems.ToArray());
             }
         }
 
@@ -203,7 +190,10 @@ namespace Grocery.Controllers
         public ActionResult ShoppingCart()
         {
             ViewBag.Message = "Items in Your Shopping Cart";
-            return View(_shoppingCart);
+            using (var _shoppingCart = new ShoppingCartContext())
+            {
+                return View(_shoppingCart.ShoppingCartItems.ToArray());
+            }
         }
 
         [HttpPost]

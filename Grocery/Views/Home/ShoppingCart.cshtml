@@ -6,7 +6,7 @@
 <div class="container text-center">
     <h2>@ViewBag.Title</h2>
     <p>@ViewBag.Message</p>
-    <h4>Total Price of Purchase: $@Model.ShowItems().Sum(x => x.Price).00</h4>
+    <h4>Total Price of Purchase: $@Model.CartItems.Sum(x => x.Price).00</h4>
 
     
     <div>
@@ -14,7 +14,7 @@
             <thead>
             </thead>
             <tbody>
-                @foreach (var item in Model.ShowItems())
+                @foreach (var item in Model.CartItems)
                 {
                 <tr>
                     <td><img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /></td>

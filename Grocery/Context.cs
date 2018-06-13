@@ -9,17 +9,15 @@ namespace Grocery
 {
     public class GroceryContext : DbContext
     {
-        public GroceryContext() : base("name=GroceryItems")
+       public GroceryContext()
         {
+            Database.SetInitializer(new DatabaseInitializer());
         }
-        public DbSet<Items> GroceryItems { get; set; }
+       public DbSet<Items> GroceryItems { get; set; }
     }
 
     public class ShoppingCartContext : DbContext
     {
-        public ShoppingCartContext() : base("name = CartItems")
-        {
-        }
-        public DbSet<Items> ShoppingCartItems { get; set; }
+       public DbSet<Items> ShoppingCartItems { get; set; }
     }
 }

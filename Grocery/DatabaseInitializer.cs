@@ -6,15 +6,11 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
-namespace Grocery.Migrations
+namespace Grocery
 {
-    internal class Configuration :
-        DbMigrationsConfiguration<GroceryContext>
+    internal class DatabaseInitializer :
+        DropCreateDatabaseIfModelChanges<GroceryContext>
     {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = false;
-        }
         protected override void Seed(GroceryContext context)
         {
             context.GroceryItems.AddOrUpdate(p => p.Id,
@@ -550,6 +546,7 @@ namespace Grocery.Migrations
                 Description = "Base of many different recipes. Price per unit.",
                 Amount = 1
             });
+            context.SaveChanges();
         }
     }
 }

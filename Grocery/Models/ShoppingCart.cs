@@ -4,12 +4,14 @@ namespace Grocery.Models
 {
     public class ShoppingCart
     {
-        public List<Items> ShoppingCartItems { get; set; }
-        public int ShoppingCartId { get; set; }
-
-        public int Count()
+        public ShoppingCart()
         {
-            return ShoppingCartItems.Count;
+            CartItems = new List<Items>();
         }
+
+        public int Id { get; set; }
+
+        public ICollection<Items> CartItems { get; set; }
+        
     }
 }
