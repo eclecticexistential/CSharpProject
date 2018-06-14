@@ -7,6 +7,11 @@ namespace Grocery.Models
 {
     public class Items
     {
+        public Items()
+        {
+            ShoppingCartItems = new List<ShoppingCartItem>();
+        }
+
         public int Id { get; set; }
         public string ItemName { get; set; }
         public string Type { get; set; }
@@ -15,6 +20,8 @@ namespace Grocery.Models
         public int Amount { get; set; }
 
         public string CoverImageFileName => ItemName.Replace(" ", "").ToLower() + ".jpg";
+
+        public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 
 }

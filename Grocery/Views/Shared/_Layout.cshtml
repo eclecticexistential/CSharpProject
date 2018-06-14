@@ -25,13 +25,15 @@
                     <li>@Html.ActionLink("Meat", "Meat", "Home")</li>
                     <li>@Html.ActionLink("Baking", "Baking", "Home")</li>
                     <li>@Html.ActionLink("Recipes", "Recipes", "Home")</li>
-                    @*@if (ViewBag._shoppingCart.Count() > 0)
-    {
-                <li>
-                    @Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null,
-        new { @class = "btn btn-default" })
-                </li>
-}*@
+                    @using (var _groceryRepoItems = new GroceryContext())
+                    {
+                        if (_groceryRepoItems.ShoppingCartItems != null)
+                        {
+                            <li>
+                                @Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null, new { @class = "btn btn-default" })
+                            </li>
+                        }
+                    }
                 </ul>
             </div>
         </div>

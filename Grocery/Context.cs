@@ -13,11 +13,7 @@ namespace Grocery
         {
             Database.SetInitializer(new DatabaseInitializer());
         }
-       public DbSet<Items> GroceryItems { get; set; }
-    }
-
-    public class ShoppingCartContext : DbContext
-    {
-       public DbSet<Items> ShoppingCartItems { get; set; }
+        public DbSet<Items> GroceryItems { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }
