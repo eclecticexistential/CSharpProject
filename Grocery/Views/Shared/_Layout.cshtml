@@ -27,7 +27,9 @@
                     <li>@Html.ActionLink("Recipes", "Recipes", "Home")</li>
                     @using (var _groceryRepoItems = new GroceryContext())
                     {
-                        if (_groceryRepoItems.ShoppingCartItems != null)
+                        var groceryQuery = from gi in _groceryRepoItems.ShoppingCartItems select gi;
+                        var groceryQueryShoppingCart = groceryQuery.ToList();
+                        if (groceryQueryShoppingCart.Count > 0)
                         {
                             <li>
                                 @Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null, new { @class = "btn btn-default" })

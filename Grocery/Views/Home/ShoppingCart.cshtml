@@ -1,43 +1,50 @@
-﻿@model Grocery.Models.ShoppingCartItem[]
-@{
+﻿@{
     ViewBag.Title = "Shopping Cart";
 }
 
 <div class="container text-center">
     <h2>@ViewBag.Title</h2>
     <p>@ViewBag.Message</p>
-    <h4>Total Price of Purchase: $@Model.Sum(x => x.Price).00</h4>
-
     
     <div>
+        @using (var _groceryRepoItems = new GroceryContext())
+    {
+        var singleItemDetails = _groceryRepoItems.GroceryItems.Include("ShoppingCartItems").Where(gi => gi.ShoppingCartItems.Any());
+        var cartItems = _groceryRepoItems.ShoppingCartItems.ToArray();
+
+        <h4>Total Price of Purchase: $@cartItems.Sum(x => x.Item.Price).00</h4>
         <table class="table table-striped">
             <thead>
             </thead>
             <tbody>
-                @foreach (var item in Model)
-                {
+                @foreach (var item in singleItemDetails)
+            {
+                var amountItems = cartItems.Count(x => x.Item.Id == item.Id);
+                var itemPrice = item.Price * amountItems;
                 <tr>
                     <td><img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /></td>
                     <td>@item.ItemName</td>
-                    <td>$@item.Price.00</td>
+                    <td>$@itemPrice.00</td>
                     <td><input value="@item.Id" name="ItemId" class="hidden" /></td>
                     @using (Html.BeginForm())
-                    {
-                        <td>
-                            <button type="submit" class="btn btn-primary" value="sub" name="math">-</button>
-                        </td>
-                        <td>@item.Amount</td>
-                        <td>
-                            <button type="submit" class="btn btn-primary" value="add" name="math">+</button>
-                        </td>
-                        <td>
-                            <button type="submit" class="btn btn-warning" value="del" name="math">Delete</button>
-                        </td>
-                    }
+                {
+                    <td>
+                        <button type="submit" class="btn btn-primary" value="sub" name="math">-</button>
+                    </td>
+                    <td>@amountItems</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" value="add" name="math">+</button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-warning" value="del" name="math">Delete</button>
+                    </td>
+            }
                 </tr>
-                }
+        }
+
             </tbody>
         </table>
         <button type="submit" class="btn btn-warning" value="checkout">Checkout</button>
+}
     </div>
 </div>

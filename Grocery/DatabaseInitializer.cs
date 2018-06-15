@@ -14,8 +14,8 @@ namespace Grocery
         protected override void Seed(GroceryContext context)
         {
             context.GroceryItems.AddOrUpdate(p => p.Id,
-            new Items { Id = 0, ItemName = "Bacon", Type = "Pig", Price = 2, Description = "Tasty pork product. Price per lbs.", Amount = 1 },
-            new Items { Id = 1, ItemName = "Baloney", Type = "Pig", Price = 1, Description = "Eat fried or straight out of the package. Price per unit.", Amount = 1 },
+            new Items { Id = 0, ItemName = "Bacon", Type = "Pig", Price = 2, Description = "Tasty pork product. Price per lbs.", Quantity = 20 },
+            new Items { Id = 1, ItemName = "Baloney", Type = "Pig", Price = 1, Description = "Eat fried or straight out of the package. Price per unit.", Quantity = 20 },
             new Items
             {
                 Id = 2,
@@ -23,7 +23,7 @@ namespace Grocery
                 Type = "Cow",
                 Price = 13,
                 Description = "Ribs are finger licking good. Price per slab.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -32,7 +32,7 @@ namespace Grocery
                 Type = "Cow",
                 Price = 4,
                 Description = "Great grilled or baked. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -41,7 +41,7 @@ namespace Grocery
                 Type = "Cow",
                 Price = 11,
                 Description = "Slow cook to perfection. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -50,7 +50,7 @@ namespace Grocery
                 Type = "Chicken",
                 Price = 3,
                 Description = "Grill or bake for best results. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -59,7 +59,7 @@ namespace Grocery
                 Type = "Chicken",
                 Price = 2,
                 Description = "Great pan fried. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -68,7 +68,7 @@ namespace Grocery
                 Type = "Chicken",
                 Price = 15,
                 Description = "Better than getting a bucket's worth. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -77,7 +77,7 @@ namespace Grocery
                 Type = "Chicken",
                 Price = 2,
                 Description = "All the spice combinations. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -86,7 +86,7 @@ namespace Grocery
                 Type = "Pig",
                 Price = 18,
                 Description = "Bake in oven for supreme deliciousness. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -95,7 +95,7 @@ namespace Grocery
                 Type = "Cow",
                 Price = 3,
                 Description = "80/20. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -104,7 +104,7 @@ namespace Grocery
                 Type = "Pig",
                 Price = 1,
                 Description = "Grill or boil to enhance meal. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -113,7 +113,7 @@ namespace Grocery
                 Type = "Pig",
                 Price = 2,
                 Description = "Bake to enhance flavor. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -122,7 +122,7 @@ namespace Grocery
                 Type = "Pig",
                 Price = 9,
                 Description = "Scrumptious. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -131,7 +131,7 @@ namespace Grocery
                 Type = "Cow",
                 Price = 4,
                 Description = "Marbled beef. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -140,7 +140,7 @@ namespace Grocery
                 Type = "Fish",
                 Price = 2,
                 Description = "Great for salmon croquet. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -149,7 +149,7 @@ namespace Grocery
                 Type = "Fish",
                 Price = 2,
                 Description = "Best pan fried or baked. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -158,7 +158,7 @@ namespace Grocery
                 Type = "Cow",
                 Price = 4,
                 Description = "Awesome treat yo' self food. Price per lbs.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -167,7 +167,7 @@ namespace Grocery
                 Type = "Fish",
                 Price = 1,
                 Description = "Great for sandwiches or dip. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -176,7 +176,7 @@ namespace Grocery
                 Type = "Turkey",
                 Price = 2,
                 Description = "Don't let this dry out. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -185,7 +185,7 @@ namespace Grocery
                 Type = "Turkey",
                 Price = 18,
                 Description = "Do not under cook. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -194,7 +194,7 @@ namespace Grocery
                 Type = "Fruit",
                 Price = 2,
                 Description = "Open from either side. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
             new Items
             {
@@ -203,7 +203,7 @@ namespace Grocery
                 Type = "Fruit",
                 Price = 2,
                 Description = "Fresh from the bush. Price per unit.",
-                Amount = 1
+                Quantity = 20
             },
                 new Items
                 {
@@ -212,7 +212,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 2,
                     Description = "Best eaten before bloom. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -221,7 +221,7 @@ namespace Grocery
                     Type = "Grain",
                     Price = 3,
                     Description = "Great for many meals. Price per lbs.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -230,7 +230,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 1,
                     Description = "Tasty in stews or raw. Price per bunch.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -239,7 +239,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 2,
                     Description = "Stringy. Burns a lot of calories. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -248,7 +248,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 1,
                     Description = "Tasty on salads. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -257,7 +257,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 3,
                     Description = "Great source of protein. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -266,7 +266,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 2,
                     Description = "Great spice or soup addition. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -275,7 +275,7 @@ namespace Grocery
                     Type = "Fruit",
                     Price = 5,
                     Description = "Granny Smith. Crisp Price per bag.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -284,7 +284,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 1,
                     Description = "Freshness sealed in. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -293,7 +293,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 1,
                     Description = "Stuff with rice or slice up for salad. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 }, new Items
                 {
                     Id = 33,
@@ -301,7 +301,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 1,
                     Description = "Good with rice. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -310,7 +310,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 1,
                     Description = "Add to soup, stew, or salsa. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -319,7 +319,7 @@ namespace Grocery
                     Type = "Fruit",
                     Price = 1,
                     Description = "Pairs well with cottage cheese. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -328,7 +328,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 4,
                     Description = "Pleasant source of potassium. Price per bag.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -337,7 +337,7 @@ namespace Grocery
                     Type = "Fruit",
                     Price = 2,
                     Description = "Pumpkin muffins or pie is great year round. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -346,7 +346,7 @@ namespace Grocery
                     Type = "Fruit",
                     Price = 4,
                     Description = "Tastes almost as great as the green kind. Price per bag.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -355,7 +355,7 @@ namespace Grocery
                     Type = "Grain",
                     Price = 1,
                     Description = "Chaulked full of fiber. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -364,7 +364,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 2,
                     Description = "Goes great with rice and sour cream. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -373,7 +373,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 2,
                     Description = "Meal in itself. Price per lbs.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -382,7 +382,7 @@ namespace Grocery
                     Type = "Fruit",
                     Price = 2,
                     Description = "Slice up in tea or water. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -391,7 +391,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 1,
                     Description = "One of the best spuds around. Price per lbs.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -400,7 +400,7 @@ namespace Grocery
                     Type = "Grain",
                     Price = 2,
                     Description = "Make burritos at any time. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -409,7 +409,7 @@ namespace Grocery
                     Type = "Grain",
                     Price = 1,
                     Description = "Healthy source of fiber. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -418,7 +418,7 @@ namespace Grocery
                     Type = "Grain",
                     Price = 1,
                     Description = "Bleached grain. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -427,7 +427,7 @@ namespace Grocery
                     Type = "Grain",
                     Price = 2,
                     Description = "Add to any soup or stew to feel full. Price per lbs.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -436,7 +436,7 @@ namespace Grocery
                     Type = "Vegetable",
                     Price = 1,
                     Description = "Best fried. Price per lbs.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -445,7 +445,7 @@ namespace Grocery
                     Type = "Ingredient",
                     Price = 1,
                     Description = "Used in lots of recipes. Price per lbs.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -454,7 +454,7 @@ namespace Grocery
                     Type = "Ingredient",
                     Price = 3,
                     Description = "Binding agent. Price per dozen.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -463,7 +463,7 @@ namespace Grocery
                     Type = "Ingredient",
                     Price = 3,
                     Description = "Great in lasanga or with fruit. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -472,7 +472,7 @@ namespace Grocery
                     Type = "Ingredient",
                     Price = 2,
                     Description = "Use to make things creamy. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -481,7 +481,7 @@ namespace Grocery
                     Type = "Ingredient",
                     Price = 4,
                     Description = "Base of making baking goods. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -490,7 +490,7 @@ namespace Grocery
                     Type = "Ingredient",
                     Price = 3,
                     Description = "Great source of calcium. Price per gallon.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -499,7 +499,7 @@ namespace Grocery
                     Type = "Ingredient",
                     Price = 4,
                     Description = "Perfect for frying or salads. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -508,7 +508,7 @@ namespace Grocery
                     Type = "Spice",
                     Price = 1,
                     Description = "Great on cottage cheese and potatoes. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -517,7 +517,7 @@ namespace Grocery
                     Type = "Spice",
                     Price = 1,
                     Description = "Very Spicy. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -526,7 +526,7 @@ namespace Grocery
                     Type = "Spice",
                     Price = 1,
                     Description = "Sodium tastes great on most things. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
                 new Items
                 {
@@ -535,7 +535,7 @@ namespace Grocery
                     Type = "Ingredient",
                     Price = 3,
                     Description = "Tastes great on potatoes, with tuna, or as dip. Price per unit.",
-                    Amount = 1
+                    Quantity = 20
                 },
             new Items
             {
@@ -544,7 +544,7 @@ namespace Grocery
                 Type = "Ingredient",
                 Price = 3,
                 Description = "Base of many different recipes. Price per unit.",
-                Amount = 1
+                Quantity = 20
             });
             context.SaveChanges();
         }

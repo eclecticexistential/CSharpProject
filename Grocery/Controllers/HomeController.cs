@@ -1,6 +1,7 @@
 ﻿using Grocery.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,7 +16,9 @@ namespace Grocery.Controllers
         {
             using (var _shoppingCart = new GroceryContext())
             {
-                ViewBag._shoppingCart = _shoppingCart.ShoppingCartItems.ToArray();
+                var shoppingCartQuery = from ci in _shoppingCart.ShoppingCartItems select ci;
+                var shoppingCartList = shoppingCartQuery.ToList();
+                ViewBag._shoppingCart = shoppingCartList.ToArray();
             }
         }
 
@@ -41,24 +44,14 @@ namespace Grocery.Controllers
             {
                 using (var _groceryRepoItems = new GroceryContext())
                 {
-                   var item = _groceryRepoItems.ShoppingCartItems.SingleOrDefault(m => m.Id == id);
-                   if (item == null)
+                    Items inventoryItem = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
+                    ShoppingCartItem addThis = new ShoppingCartItem
                     {
-                        Items inventory = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
-                        ShoppingCartItem addThis = new ShoppingCartItem
-                        {
-                            Item = inventory
-                        };
-                        _groceryRepoItems.ShoppingCartItems.Add(addThis);
-                        _groceryRepoItems.SaveChanges();
-                    }
-                    else
-                    {
-                        //int ogPrice = item.Price / item.Amount;
-                        //item.Amount += 1;
-                        //item.Price += ogPrice;
-                        //change amount and price
-                    }
+                        Item = inventoryItem
+                    };
+                    _groceryRepoItems.ShoppingCartItems.Add(addThis);
+                    inventoryItem.Quantity -= 1;
+                    _groceryRepoItems.SaveChanges();
                 }
                 return RedirectToAction("Plant");
             }
@@ -86,24 +79,14 @@ namespace Grocery.Controllers
             {
                 using (var _groceryRepoItems = new GroceryContext())
                 {
-                    var item = _groceryRepoItems.ShoppingCartItems.SingleOrDefault(m => m.Id == id);
-                    if (item == null)
+                    Items inventoryItem = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
+                    ShoppingCartItem addThis = new ShoppingCartItem
                     {
-                            var inventory = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
-                            ShoppingCartItem addThis = new ShoppingCartItem
-                            {
-                                Item = inventory
-                            };
-                            _groceryRepoItems.ShoppingCartItems.Add(addThis);
-                            _groceryRepoItems.SaveChanges();
-                    }
-                    else
-                    {
-                        //int ogPrice = item.Price / item.Amount;
-                        //item.Amount += 1;
-                        //item.Price += ogPrice;
-                        //change amount and price
-                    }
+                        Item = inventoryItem
+                    };
+                    _groceryRepoItems.ShoppingCartItems.Add(addThis);
+                    inventoryItem.Quantity -= 1;
+                    _groceryRepoItems.SaveChanges();
                 }
                 return RedirectToAction("Meat");
             }
@@ -130,23 +113,14 @@ namespace Grocery.Controllers
             {
                 using (var _groceryRepoItems = new GroceryContext())
                 {
-                    var item = _groceryRepoItems.ShoppingCartItems.SingleOrDefault(m => m.Id == id);
-                    if (item == null)
+                    Items inventoryItem = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
+                    ShoppingCartItem addThis = new ShoppingCartItem
                     {
-                        var inventory = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
-                        ShoppingCartItem addThis = new ShoppingCartItem
-                        {
-                            Item = inventory
-                        };
-                        _groceryRepoItems.SaveChanges();
-                    }
-                    else
-                    {
-                        //int ogPrice = item.Price / item.Amount;
-                        //item.Amount += 1;
-                        //item.Price += ogPrice;
-                        //change amount and price
-                    }
+                        Item = inventoryItem
+                    };
+                    _groceryRepoItems.ShoppingCartItems.Add(addThis);
+                    inventoryItem.Quantity -= 1;
+                    _groceryRepoItems.SaveChanges();
                 }
                 return RedirectToAction("Baking");
             }
@@ -171,23 +145,14 @@ namespace Grocery.Controllers
             {
                 using (var _groceryRepoItems = new GroceryContext())
                 {
-                    var item = _groceryRepoItems.ShoppingCartItems.SingleOrDefault(m => m.Id == id);
-                    if (item == null)
+                    Items inventoryItem = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
+                    ShoppingCartItem addThis = new ShoppingCartItem
                     {
-                            var inventory = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
-                            ShoppingCartItem addThis = new ShoppingCartItem
-                            {
-                                Item = inventory
-                            };
-                            _groceryRepoItems.SaveChanges();
-                    }
-                    else
-                    {
-                        //int ogPrice = item.Price / item.Amount;
-                        //item.Amount += 1;
-                        //item.Price += ogPrice;
-                        //change amount and price
-                    }
+                        Item = inventoryItem
+                    };
+                    _groceryRepoItems.ShoppingCartItems.Add(addThis);
+                    inventoryItem.Quantity -= 1;
+                    _groceryRepoItems.SaveChanges();
                 }
                 return RedirectToAction("Recipes");
             }
@@ -200,12 +165,7 @@ namespace Grocery.Controllers
         public ActionResult ShoppingCart()
         {
             ViewBag.Message = "Items in Your Shopping Cart";
-            using (var _shoppingCart = new GroceryContext())
-            {
-                //var cartItems = _groceryRepoItems.GroceryItems.Include("ShoppingCartItems").Where(gi => gi.ShoppingCartItems.Any()); // use to identify only once in shoppingcart rather than show multiple times on shoppingcart view
-
-                return View(_shoppingCart.ShoppingCartItems.ToArray());
-            }
+            return View();
         }
 
         [HttpPost]
@@ -215,32 +175,23 @@ namespace Grocery.Controllers
             {
                 using (var _shoppingCartItems = new GroceryContext())
                 {
-                    var item = _shoppingCartItems.ShoppingCartItems.SingleOrDefault(m => m.Id == ItemId);
-                    if (item != null)
+                    Items inventoryItem = _shoppingCartItems.GroceryItems.SingleOrDefault(m => m.Id == ItemId);
+                    ShoppingCartItem cartItem = new ShoppingCartItem
                     {
-                        if (math == "del")
-                        {
-                            _shoppingCartItems.ShoppingCartItems.Remove(item);
-                            _shoppingCartItems.SaveChanges();
-                        }
-                        else if (math == "sub")
-                        {
-                            //int ogPrice = item.Price / item.Amount;
-                            //item.Amount -= 1;
-                            //if (item.Amount == 0)
-                            //{
-                            //    _shoppingCartItems.ShoppingCartItems.Remove(item);
-                            //    return RedirectToAction("ShoppingCart");
-                            //}
-                            //item.Price -= ogPrice;
-                        }
-                        else if (math == "add")
-                        {
-                            //int ogPrice = item.Price / item.Amount;
-                            //item.Amount += 1;
-                            //item.Price += ogPrice;
-                            //change amount and price
-                        }
+                        Item = inventoryItem
+                    };
+                    if (math == "add")
+                    {
+                        _shoppingCartItems.ShoppingCartItems.Add(cartItem);
+                        inventoryItem.Quantity -= 1;
+                        _shoppingCartItems.SaveChanges();
+                    }
+                    else if (math == "del" || math == "sub")
+                    {
+
+                        _shoppingCartItems.Entry(cartItem).State = EntityState.Deleted;
+                        inventoryItem.Quantity += 1;
+                        _shoppingCartItems.SaveChanges();
                     }
                     return RedirectToAction("ShoppingCart");
                 }
