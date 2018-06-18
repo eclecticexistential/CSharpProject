@@ -169,6 +169,24 @@ namespace Grocery.Controllers
         }
 
         [HttpPost]
+        public ActionResult ShoppingCart(bool checkout)
+        {
+            if (ModelState.IsValid && checkout == true)
+            {
+                using (var _shoppingCartItems = new GroceryContext())
+                {
+                    foreach(var item in _shoppingCartItems.ShoppingCartItems)
+                    {
+                        _shoppingCartItems.ShoppingCartItems.Remove(item);
+                    }
+                    _shoppingCartItems.SaveChanges();
+                }
+            }
+            ViewBag.Message = "Thank You For Shopping With Us!";
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult ShoppingCart(int ItemId, string math)
         {
             if (ModelState.IsValid)
@@ -176,6 +194,7 @@ namespace Grocery.Controllers
                 using (var _shoppingCartItems = new GroceryContext())
                 {
                     Items inventoryItem = _shoppingCartItems.GroceryItems.SingleOrDefault(m => m.Id == ItemId);
+                    ShoppingCartItem itemRemove = _shoppingCartItems.ShoppingCartItems.FirstOrDefault(m => m.ItemId == ItemId);
                     ShoppingCartItem cartItem = new ShoppingCartItem
                     {
                         Item = inventoryItem
@@ -186,11 +205,23 @@ namespace Grocery.Controllers
                         inventoryItem.Quantity -= 1;
                         _shoppingCartItems.SaveChanges();
                     }
-                    else if (math == "del" || math == "sub")
+                    else if (math == "sub")
                     {
-
-                        _shoppingCartItems.Entry(cartItem).State = EntityState.Deleted;
+                        _shoppingCartItems.ShoppingCartItems.Remove(itemRemove);
                         inventoryItem.Quantity += 1;
+                        _shoppingCartItems.SaveChanges();
+                        
+                    }
+                    else if (math == "del")
+                    {
+                        foreach(var item in _shoppingCartItems.ShoppingCartItems)
+                        {
+                            if(item.ItemId == ItemId)
+                            {
+                                _shoppingCartItems.ShoppingCartItems.Remove(item);
+                                inventoryItem.Quantity += 1;
+                            }
+                        }
                         _shoppingCartItems.SaveChanges();
                     }
                     return RedirectToAction("ShoppingCart");
@@ -200,3 +231,5 @@ namespace Grocery.Controllers
         }
     }
 }
+
+

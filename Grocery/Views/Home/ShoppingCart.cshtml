@@ -25,9 +25,10 @@
                     <td><img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /></td>
                     <td>@item.ItemName</td>
                     <td>$@itemPrice.00</td>
-                    <td><input value="@item.Id" name="ItemId" class="hidden" /></td>
+
                     @using (Html.BeginForm())
                 {
+                    <td><input value="@item.Id" name="ItemId" class="hidden" /></td>
                     <td>
                         <button type="submit" class="btn btn-primary" value="sub" name="math">-</button>
                     </td>
@@ -44,7 +45,10 @@
 
             </tbody>
         </table>
-        <button type="submit" class="btn btn-warning" value="checkout">Checkout</button>
+        using (Html.BeginForm())
+       {
+        <button type="submit" class="btn btn-warning" value="true" name="checkout">Checkout</button>
+        }
 }
     </div>
 </div>
