@@ -169,24 +169,6 @@ namespace Grocery.Controllers
         }
 
         [HttpPost]
-        public ActionResult ShoppingCart(bool checkout)
-        {
-            if (ModelState.IsValid && checkout == true)
-            {
-                using (var _shoppingCartItems = new GroceryContext())
-                {
-                    foreach(var item in _shoppingCartItems.ShoppingCartItems)
-                    {
-                        _shoppingCartItems.ShoppingCartItems.Remove(item);
-                    }
-                    _shoppingCartItems.SaveChanges();
-                }
-            }
-            ViewBag.Message = "Thank You For Shopping With Us!";
-            return View();
-        }
-
-        [HttpPost]
         public ActionResult ShoppingCart(int ItemId, string math)
         {
             if (ModelState.IsValid)
@@ -221,6 +203,14 @@ namespace Grocery.Controllers
                                 _shoppingCartItems.ShoppingCartItems.Remove(item);
                                 inventoryItem.Quantity += 1;
                             }
+                        }
+                        _shoppingCartItems.SaveChanges();
+                    }
+                    else if (math == "checkout" && ItemId == 000)
+                    {
+                        foreach (var item in _shoppingCartItems.ShoppingCartItems)
+                        {
+                            _shoppingCartItems.ShoppingCartItems.Remove(item);
                         }
                         _shoppingCartItems.SaveChanges();
                     }
