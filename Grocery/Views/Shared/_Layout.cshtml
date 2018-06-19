@@ -31,7 +31,7 @@
                     {
                         var groceryQuery = from gi in _groceryRepoItems.ShoppingCartItems select gi;
                         var groceryQueryShoppingCart = groceryQuery.ToList();
-                        if (groceryQueryShoppingCart.Count > 0)
+                        if (groceryQueryShoppingCart.Count > 0 && ViewBag.ShoppingCart == true)
                         {
                             <li>
                                 @Html.ActionLink("Go to Shopping Cart", "ShoppingCart", null, new { @class = "btn btn-default" })
