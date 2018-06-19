@@ -25,6 +25,8 @@
                     <li>@Html.ActionLink("Meat", "Meat", "Home")</li>
                     <li>@Html.ActionLink("Baking", "Baking", "Home")</li>
                     <li>@Html.ActionLink("Recipes", "Recipes", "Home")</li>
+                    @*initializes context, makes instance of grocery items, turns into list for count method.
+                    establishes when to show shopping cart button*@
                     @using (var _groceryRepoItems = new GroceryContext())
                     {
                         var groceryQuery = from gi in _groceryRepoItems.ShoppingCartItems select gi;

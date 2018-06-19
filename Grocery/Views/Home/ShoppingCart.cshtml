@@ -6,9 +6,10 @@
     <h2>@ViewBag.Title</h2>
     @using (var _groceryRepoItems = new GroceryContext())
     {
+        @*gets one instance of any item in shopping cart*@
         var singleItemDetails = _groceryRepoItems.GroceryItems.Include("ShoppingCartItems").Where(gi => gi.ShoppingCartItems.Any());
         var cartItems = _groceryRepoItems.ShoppingCartItems.ToArray();
-
+        @*determines what message to show during shopping experience*@
         if (cartItems.Length == 0)
         {
             <h3>Thank You For Shopping With Us!</h3>

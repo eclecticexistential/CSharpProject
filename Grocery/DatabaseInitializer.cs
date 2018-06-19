@@ -11,6 +11,7 @@ namespace Grocery
     internal class DatabaseInitializer :
         DropCreateDatabaseIfModelChanges<GroceryContext>
     {
+        //seeds inventory
         protected override void Seed(GroceryContext context)
         {
             context.GroceryItems.AddOrUpdate(p => p.Id,

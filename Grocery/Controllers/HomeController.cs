@@ -14,6 +14,7 @@ namespace Grocery.Controllers
 
         public HomeController()
         {
+            //creates shopping cart array for viewbag prop
             using (var _shoppingCart = new GroceryContext())
             {
                 var shoppingCartQuery = from ci in _shoppingCart.ShoppingCartItems select ci;
@@ -30,6 +31,7 @@ namespace Grocery.Controllers
         public ActionResult Plant()
         {
             ViewBag.Message = "Food You Need to Feel Healthy and Live Well";
+            //loads plant page with full array of grocery items
             using (var _groceryRepoItems = new GroceryContext())
             {
                 return View(_groceryRepoItems.GroceryItems.ToArray());
@@ -39,6 +41,7 @@ namespace Grocery.Controllers
         [HttpPost]
         public ActionResult Plant(string Item)
         {
+            //gets id number from string post
             int id = Int32.Parse(Item);
             if (ModelState.IsValid)
             {
@@ -138,21 +141,28 @@ namespace Grocery.Controllers
         }
 
         [HttpPost]
-        public ActionResult Recipes(string Item)
+        public ActionResult Recipes(string Items)
         {
-            int id = Int32.Parse(Item);
+            //needs work. Id numbers do not function as expected on Recipes page, however, strings do.
             if (ModelState.IsValid)
             {
                 using (var _groceryRepoItems = new GroceryContext())
                 {
-                    Items inventoryItem = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.Id == id);
-                    ShoppingCartItem addThis = new ShoppingCartItem
+                    if(Items == "potato")
                     {
-                        Item = inventoryItem
-                    };
-                    _groceryRepoItems.ShoppingCartItems.Add(addThis);
-                    inventoryItem.Quantity -= 1;
-                    _groceryRepoItems.SaveChanges();
+                        List<string> potatoSoupIds = new List<string> { "Potato", "Milk", "Butter", "Pepper", "Salt", "Bacon", "Celery", "Onion", "Vegetable Broth" };
+                        foreach (var name in potatoSoupIds)
+                        {
+                            Items inventoryItem = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.ItemName == name);
+                            ShoppingCartItem addThis = new ShoppingCartItem
+                            {
+                                Item = inventoryItem
+                            };
+                            _groceryRepoItems.ShoppingCartItems.Add(addThis);
+                            inventoryItem.Quantity -= 1;
+                            _groceryRepoItems.SaveChanges();
+                        }
+                    }
                 }
                 return RedirectToAction("Recipes");
             }
@@ -175,8 +185,11 @@ namespace Grocery.Controllers
             {
                 using (var _shoppingCartItems = new GroceryContext())
                 {
+                    //gets the item from inventory
                     Items inventoryItem = _shoppingCartItems.GroceryItems.SingleOrDefault(m => m.Id == ItemId);
+                    //finds item to be removed
                     ShoppingCartItem itemRemove = _shoppingCartItems.ShoppingCartItems.FirstOrDefault(m => m.ItemId == ItemId);
+                    //transforms inventory item to shopping cart item
                     ShoppingCartItem cartItem = new ShoppingCartItem
                     {
                         Item = inventoryItem
@@ -184,6 +197,7 @@ namespace Grocery.Controllers
                     if (math == "add")
                     {
                         _shoppingCartItems.ShoppingCartItems.Add(cartItem);
+                        //logic for when quantity reduction goes over quantity amount is not yet created.
                         inventoryItem.Quantity -= 1;
                         _shoppingCartItems.SaveChanges();
                     }
@@ -196,6 +210,7 @@ namespace Grocery.Controllers
                     }
                     else if (math == "del")
                     {
+                        //removes all instances of item in shopping cart. probably a better way to do this.
                         foreach(var item in _shoppingCartItems.ShoppingCartItems)
                         {
                             if(item.ItemId == ItemId)
@@ -206,6 +221,7 @@ namespace Grocery.Controllers
                         }
                         _shoppingCartItems.SaveChanges();
                     }
+                    //deletes all items from shopping cart. ItemId is a potential placemarker for shopping cart id
                     else if (math == "checkout" && ItemId == 000)
                     {
                         foreach (var item in _shoppingCartItems.ShoppingCartItems)
