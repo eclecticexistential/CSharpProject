@@ -1,19 +1,17 @@
 ﻿using Grocery.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Web;
 
 namespace Grocery
 {
     internal class DatabaseInitializer :
-        DropCreateDatabaseIfModelChanges<GroceryContext>
+        CreateDatabaseIfNotExists<GroceryContext>
     {
         //seeds inventory
         protected override void Seed(GroceryContext context)
         {
+            context.ListOfRecipes.AddOrUpdate(p => p.Id,
+            new RecipeItems { Id = 0, RecipeName = "Potato Soup"});
             context.GroceryItems.AddOrUpdate(p => p.Id,
             new Items { Id = 0, ItemName = "Bacon", Type = "Pig", Price = 2, Description = "Tasty pork product. Price per lbs.", Quantity = 20 },
             new Items { Id = 1, ItemName = "Baloney", Type = "Pig", Price = 1, Description = "Eat fried or straight out of the package. Price per unit.", Quantity = 20 },

@@ -141,27 +141,24 @@ namespace Grocery.Controllers
         }
 
         [HttpPost]
-        public ActionResult Recipes(string Items)
+        public ActionResult Recipes(string recipeName)
         {
             //needs work. Id numbers do not function as expected on Recipes page, however, strings do.
             if (ModelState.IsValid)
             {
                 using (var _groceryRepoItems = new GroceryContext())
                 {
-                    if(Items == "potato")
+                    var matchRecipeName = _groceryRepoItems.ListOfRecipes.SingleOrDefault(m => m.RecipeName == recipeName);
+                    foreach (var name in matchRecipeName.Item)
                     {
-                        List<string> potatoSoupIds = new List<string> { "Potato", "Milk", "Butter", "Pepper", "Salt", "Bacon", "Celery", "Onion", "Vegetable Broth" };
-                        foreach (var name in potatoSoupIds)
+                        Items inventoryItem = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.ItemName == name.ItemName);
+                        ShoppingCartItem addThis = new ShoppingCartItem
                         {
-                            Items inventoryItem = _groceryRepoItems.GroceryItems.SingleOrDefault(m => m.ItemName == name);
-                            ShoppingCartItem addThis = new ShoppingCartItem
-                            {
-                                Item = inventoryItem
-                            };
-                            _groceryRepoItems.ShoppingCartItems.Add(addThis);
-                            inventoryItem.Quantity -= 1;
-                            _groceryRepoItems.SaveChanges();
-                        }
+                            Item = inventoryItem
+                        };
+                        _groceryRepoItems.ShoppingCartItems.Add(addThis);
+                        inventoryItem.Quantity -= 1;
+                        _groceryRepoItems.SaveChanges();
                     }
                 }
                 return RedirectToAction("Recipes");

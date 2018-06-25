@@ -151,6 +151,9 @@
     <Compile Include="Context.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="Models\AddIngredientList.cs" />
+    <Compile Include="Models\RecipeItems.cs" />
+    <Compile Include="Models\RecipeRepo.cs" />
     <Compile Include="Models\ShoppingCartItem.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
