@@ -12,6 +12,18 @@ namespace Grocery.Controllers
     public class HomeController : Controller
     {
 
+        static HomeController()
+        {
+            using (var _groceryRepoItems = new GroceryContext())
+            {
+                var recipeCheck = _groceryRepoItems.ListOfRecipes.ToArray();
+                if (recipeCheck[0].Item.Count == 0)
+                {
+                    AddIngredientList addInitialRecipe = new AddIngredientList();
+                }
+            }
+        }
+
         public HomeController()
         {
             //creates shopping cart array for viewbag prop

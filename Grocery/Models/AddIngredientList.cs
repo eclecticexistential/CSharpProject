@@ -12,38 +12,45 @@ namespace Grocery.Models
             using (var _groceryRepoItems = new GroceryContext())
             {
                 var inventory = _groceryRepoItems.GroceryItems.ToArray();
-                var recipeList = _groceryRepoItems.ListOfRecipes.ToArray();
-                if (recipeList.Length == 1)
+                var recipeListNames = _groceryRepoItems.ListOfRecipes.ToArray();
+                if (recipeListNames.Length == 2)
                 {
-                    List<Items> listOfPotatoSoupItems = new List<Items> { };
+                    List<List<string>> initialIngredientList = new List<List<string>> { };
                     List<string> potatoSoupIds = new List<string> { "Potato Soup", "Potato", "Milk", "Butter", "Pepper", "Salt", "Bacon", "Celery", "Onion", "Vegetable Broth" };
-                    var potatoSoup = recipeList.SingleOrDefault(x => x.RecipeName == potatoSoupIds[0]);
-                    if(potatoSoup.Item.Count == 0)
+                    List<string> chicBrocRice = new List<string> { "Chicken Broccoli Rice", "Chicken Breast", "White Rice", "Broccoli", "Pepper", "Vegetable Broth", "Salt" };
+                    initialIngredientList.Add(potatoSoupIds);
+                    initialIngredientList.Add(chicBrocRice);
+                    foreach(var oneRecipe in recipeListNames)
                     {
-                        foreach (var ingredient in potatoSoupIds)
+                        if(oneRecipe.Item.Count == 0)
                         {
-                            var addThis = inventory.SingleOrDefault(x => x.ItemName == ingredient);
-                            listOfPotatoSoupItems.Add(addThis);
+                            foreach (var ingredientList in initialIngredientList)
+                            {
+                                AddIngredients(ingredientList);
+                            };
                         }
-                        potatoSoup.Item = listOfPotatoSoupItems;
-                        _groceryRepoItems.SaveChanges();
                     }
                 }
             }
         }
         public void AddIngredients(List<string> ingredientList)
         {
-            string recipeName = ingredientList[0];
-            RecipeItems newRecipe = new RecipeItems()
-            {
-                RecipeName = recipeName
-            };
             using (var _groceryRepoItems = new GroceryContext())
             {
-                _groceryRepoItems.ListOfRecipes.Add(newRecipe);
                 var inventory = _groceryRepoItems.GroceryItems.ToArray();
                 var recipeList = _groceryRepoItems.ListOfRecipes.ToArray();
                 var oneRecipe = recipeList.SingleOrDefault(x => x.RecipeName == ingredientList[0]);
+                if(oneRecipe == null)
+                {
+                    string recipeName = ingredientList[0];
+                    RecipeItems newRecipe = new RecipeItems()
+                    {
+                        RecipeName = recipeName
+                    };
+                    _groceryRepoItems.ListOfRecipes.Add(newRecipe);
+                    _groceryRepoItems.SaveChanges();
+                }
+                
                 List<Items> updateList = new List<Items> { };
                 foreach (var ingredient in ingredientList)
                 {
@@ -54,5 +61,5 @@ namespace Grocery.Models
                 _groceryRepoItems.SaveChanges();
             }
         }
-        }
+    }
 }

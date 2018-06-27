@@ -11,7 +11,9 @@ namespace Grocery
         protected override void Seed(GroceryContext context)
         {
             context.ListOfRecipes.AddOrUpdate(p => p.Id,
-            new RecipeItems { Id = 0, RecipeName = "Potato Soup"});
+            new RecipeItems { Id = 0, RecipeName = "Potato Soup"},
+            new RecipeItems { Id = 1, RecipeName = "Chicken Broccoli Rice"}
+            );
             context.GroceryItems.AddOrUpdate(p => p.Id,
             new Items { Id = 0, ItemName = "Bacon", Type = "Pig", Price = 2, Description = "Tasty pork product. Price per lbs.", Quantity = 20 },
             new Items { Id = 1, ItemName = "Baloney", Type = "Pig", Price = 1, Description = "Eat fried or straight out of the package. Price per unit.", Quantity = 20 },
