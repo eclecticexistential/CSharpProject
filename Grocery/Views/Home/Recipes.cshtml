@@ -1,4 +1,4 @@
-﻿@using Grocery.Models;
+﻿
 @{
     ViewBag.Title = "Recipes";
     ViewBag.ShoppingCart = true;
@@ -18,7 +18,7 @@
         foreach (var recipeInfo in recipeList)
         {
             var recipeIngredientList = recipeInfo.Item.ToArray();
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <h4>@recipeInfo.RecipeName - $@recipeIngredientList.Sum(x => x.Price).00</h4>
                     <div class="row">
                         @foreach (var item in recipeIngredientList)
@@ -28,6 +28,7 @@
                         </div>
                         }
                     </div>
+                    <p>@recipeInfo.Description</p>
                     @*sends recipeName*@
                     @using (Html.BeginForm())
                     {
@@ -36,5 +37,9 @@
                 </div>
             }
         }
-            </div>
-        </div>
+                <div class="col-sm-4">
+                    <h4>Create Your Own Recipe</h4>
+                    @Html.ActionLink("Create Recipe", "AddRecipe", null, new { @class = "btn btn-primary" })
+                </div>
+    </div>
+</div>

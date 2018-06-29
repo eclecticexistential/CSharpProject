@@ -6,10 +6,11 @@ namespace Grocery.Models
 {
     public class RecipeItems
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public virtual List<Items> Item { get; set; }
         [Required]
         public string RecipeName { get; set; }
+        public string Description { get; set; }
     }
 }

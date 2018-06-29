@@ -7,6 +7,10 @@
     background: dodgerblue;
 }
 
+.ml-5 {
+    margin: 0.25em auto;
+}
+
 .auto {
     margin: 0 0 1em;
 }
@@ -31,6 +35,10 @@
     max-height: 3.5em;
 }
 
+.p-3{
+    padding: 0.5em;
+    margin: 0.25em;
+}
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

@@ -40,6 +40,22 @@ namespace Grocery.Models
                 var inventory = _groceryRepoItems.GroceryItems.ToArray();
                 var recipeList = _groceryRepoItems.ListOfRecipes.ToArray();
                 var oneRecipe = recipeList.SingleOrDefault(x => x.RecipeName == ingredientList[0]);
+
+                List<Items> updateList = new List<Items> { };
+                foreach (var ingredient in ingredientList)
+                {
+                    var addThis = inventory.SingleOrDefault(x => x.ItemName == ingredient);
+                    if (addThis != null)
+                    {
+                        updateList.Add(addThis);
+                    }
+                }
+
+                if (oneRecipe != null)
+                {
+                    oneRecipe.Item = updateList;
+                    _groceryRepoItems.SaveChanges();
+                }
                 if(oneRecipe == null)
                 {
                     string recipeName = ingredientList[0];
@@ -47,18 +63,12 @@ namespace Grocery.Models
                     {
                         RecipeName = recipeName
                     };
+                    newRecipe.Item = updateList;
                     _groceryRepoItems.ListOfRecipes.Add(newRecipe);
                     _groceryRepoItems.SaveChanges();
                 }
                 
-                List<Items> updateList = new List<Items> { };
-                foreach (var ingredient in ingredientList)
-                {
-                    var addThis = inventory.SingleOrDefault(x => x.ItemName == ingredient);
-                    updateList.Add(addThis);
-                }
-                oneRecipe.Item = updateList;
-                _groceryRepoItems.SaveChanges();
+                
             }
         }
     }

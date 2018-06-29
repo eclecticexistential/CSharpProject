@@ -200,6 +200,7 @@
     <Content Include="Views\Home\Baking.cshtml" />
     <Content Include="Views\Home\Recipes.cshtml" />
     <Content Include="Views\Home\ShoppingCart.cshtml" />
+    <Content Include="Views\Home\AddRecipe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

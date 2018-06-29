@@ -155,7 +155,6 @@ namespace Grocery.Controllers
         [HttpPost]
         public ActionResult Recipes(string recipeName)
         {
-            //needs work. Id numbers do not function as expected on Recipes page, however, strings do.
             if (ModelState.IsValid)
             {
                 using (var _groceryRepoItems = new GroceryContext())
@@ -181,6 +180,25 @@ namespace Grocery.Controllers
             }
         }
 
+        public ActionResult AddRecipe()
+        {
+            ViewBag.Message = "Create A New Recipe";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddRecipe(RecipeForm form)
+        {
+            if (ModelState.IsValid)
+            {
+                form.AddFromForm();
+                return RedirectToAction("Recipes");
+            }
+            else
+            {
+                return View();
+            }
+        }
         public ActionResult ShoppingCart()
         {
             ViewBag.Message = "Items in Your Shopping Cart";
