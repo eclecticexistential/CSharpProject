@@ -16,9 +16,19 @@
                 <div class="col-md-2 h-2">
                     <h4>@meatType.ItemName</h4>
                     <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
-                    <h3>$@meatType.Price.00</h3>
-                    <p class="mb-5"><bold>@meatType.Description</bold></p>
-                    <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+                    @if (meatType.Quantity > 0)
+    {
+                <h3>$@meatType.Price.00</h3>
+                <p class="mb-5"><bold>@meatType.Description</bold></p>
+                <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+}
+else
+{
+                <h3>$@meatType.Price.00</h3>
+                <p class="mb-5"><bold>@meatType.Description</bold></p>
+                <h5>OUT OF STOCK</h5>
+}
+                   
                 </div>
             </div>
          }
@@ -31,9 +41,18 @@
                 <div class="col-md-2 h-2">
                     <h4>@meatType.ItemName</h4>
                     <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
-                    <h3>$@meatType.Price.00</h3>
-                    <p class="mb-5"><bold>@meatType.Description</bold></p>
-                    <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+                    @if (meatType.Quantity > 0)
+    {
+                <h3>$@meatType.Price.00</h3>
+                <p class="mb-5"><bold>@meatType.Description</bold></p>
+                <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+}
+else
+{
+                <h3>$@meatType.Price.00</h3>
+                <p class="mb-5"><bold>@meatType.Description</bold></p>
+                <h5>OUT OF STOCK</h5>
+}
                 </div>
             </div>
             }
@@ -46,9 +65,18 @@
                         <div class="col-md-2 h-2">
                             <h4>@meatType.ItemName</h4>
                             <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
-                            <h3>$@meatType.Price.00</h3>
-                            <p class="mb-5"><bold>@meatType.Description</bold></p>
-                            <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+                            @if (meatType.Quantity > 0)
+    {
+                        <h3>$@meatType.Price.00</h3>
+                        <p class="mb-5"><bold>@meatType.Description</bold></p>
+                        <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+}
+else
+{
+                        <h3>$@meatType.Price.00</h3>
+                        <p class="mb-5"><bold>@meatType.Description</bold></p>
+                        <h5>OUT OF STOCK</h5>
+}
                         </div>
 
                     </div>
@@ -62,13 +90,23 @@
                     <div class="col-md-2 h-2">
                         <h4>@meatType.ItemName</h4>
                         <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
-                        <h3>$@meatType.Price.00</h3>
-                        <p class="mb-5"><bold>@meatType.Description</bold></p>
-                        <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+                        @if (meatType.Quantity > 0)
+                        {
+                    <h3>$@meatType.Price.00</h3>
+                    <p class="mb-5"><bold>@meatType.Description</bold></p>
+                    <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+                                    }
+                                    else
+                                    {
+                        <h3>$@meatType.Price.00 </h3>
+
+                          <p class="mb-5"><bold>@meatType.Description</bold></p>
+                        <h5>OUT OF STOCK</h5>
+                            }
                     </div>
                 </div>
                 }
-            </div>
+                    </div>
         <div class="row bg-lightgreen">
             <h3>Turkey</h3>
                 @foreach (var meatType in Model.Where(m => m.Type == "Turkey"))
@@ -77,12 +115,21 @@
                     <div class="col-md-2 h-2">
                         <h4>@meatType.ItemName</h4>
                         <img src="/Images/@meatType.CoverImageFileName" alt="@meatType.ItemName" class="h-5 image-responsive" />
-                        <h3>$@meatType.Price.00</h3>
-                        <p class="mb-5"><bold>@meatType.Description</bold></p>
-                        <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+                        @if (meatType.Quantity > 0)
+                        {
+                    <h3>$@meatType.Price.00</h3>
+                    <p class="mb-5"><bold>@meatType.Description</bold></p>
+                    <button type="submit" class="btn btn-primary auto" name="Item" value="@meatType.Id">Add to Cart</button>
+                                    }
+                                    else
+                                    {
+                        <h3>$@meatType.Price.00 </h3>
+                          <p class="mb-5"><bold>@meatType.Description</bold></p>
+                        <h5>OUT OF STOCK</h5>
+                            }
                     </div>
                 </div>
                 }
-            </div>
+                    </div>
 }
     </div>

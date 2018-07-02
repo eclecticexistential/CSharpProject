@@ -22,11 +22,20 @@
                     <h4>@recipeInfo.RecipeName - $@recipeIngredientList.Sum(x => x.Price).00</h4>
                     <div class="row">
                         @foreach (var item in recipeIngredientList)
-                        {
-                        <div class="col-sm-4">
-                            <img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /> <p>@item.ItemName $@item.Price.00</p>
-                        </div>
-                        }
+    {
+        if (item.Quantity > 0)
+                {
+                            <div class="col-sm-4">
+                                <img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /> <p>@item.ItemName $@item.Price.00</p>
+                            </div>
+        }
+        else
+        {
+                            <div class="col-sm-4">
+                                <img src="/Images/@item.CoverImageFileName" alt="@item.ItemName" class="image-responsive h-7" /> <p>@item.ItemName - OUT OF STOCK</p>
+                            </div>
+        }
+}
                     </div>
                     <p>@recipeInfo.Description</p>
                     @*sends recipeName*@
