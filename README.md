@@ -15,3 +15,7 @@ After navigating to the shopping cart page, users can add or reduce the number o
 Upon deciding to purchase items, users can click 'checkout' and a thank you for shopping with us message appears, simulating the checkout process.
 
 ![Thank You!](https://raw.githubusercontent.com/eclecticexistential/CSharpProject/master/Grocery/Images/README/ThankYou.PNG)
+
+Newest Update: Users can now share meal ideas with others by adding customized recipes to the page. Each new recipe features ingredients, recipe description, estimated price, and ability to add directly to shopping cart.
+
+![Add Recipe](https://raw.githubusercontent.com/eclecticexistential/CSharpProject/master/Grocery/Images/README/AddRecipe.PNG)
